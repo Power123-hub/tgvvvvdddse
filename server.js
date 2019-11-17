@@ -1,13 +1,13 @@
-const http = require("http");
-const express = require("express");
-const cmd = require("node-cmd");
+const http = require('http');
+const express = require('express');
 const app = express();
-
-app.get("/", (_, r) => r.sendStatus(200));
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 4 * 60 * 1000);
+  http.get(`http://toxiccode.glitch.me/`);
+}, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت 
 const { Client, RichEmbed } = require("discord.js");
