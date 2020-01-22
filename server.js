@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://اسم البروجكت.glitch.me/`);
+  http.get(`http://flash-rifle.glitch.me/`);
 }, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت 
@@ -46,6 +46,12 @@ client.on('ready', () => {
 });
  
 
+
+
+
+
+
+
  //كود برودكاست
 
 client.on("message", message => {
@@ -70,6 +76,6 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : osama tech ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`hello`,"http://twitch.tv/S-F")
+client.user.setGame(`Fuck You !`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
