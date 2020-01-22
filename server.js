@@ -45,9 +45,28 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
  
+client.on('message', message => { /// edit fox
+      if(message.content ===  "$hc") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('ليس لديك صلاحية ادمن :x:');
+             message.channel.overwritePermissions(message.guild.id, {
+             SEND_MESSAGES: false
+ })
+              message.channel.send('چات داخرا ! :white_check_mark:  ') ///edit fox
+ }
+});
 
 
-
+client.on('message', message => {
+      if(message.content === "$sc") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('ليست لديك صلاحية ادمن :x:');
+             message.channel.overwritePermissions(message.guild.id, {
+             SEND_MESSAGES: true
+ })
+              message.channel.send('چات کرایەوە ')
+ }
+});
 
 
 
