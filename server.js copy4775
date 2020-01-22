@@ -45,31 +45,6 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
  
-client.on('message', message => {
-  if (message.author.bot) return;
-
-  let args = message.content.split(" ");
-  
-  let command = args[0];
-  
-  let messagecount = args[1];
-  
-    if(command == prefix + "clear") {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-		message.channel.send("يجب ان تمتلك خاصية `MANAGE_MESSAGES` ")
-	} else if (!messagecount) {
-		message.channel.send("**قم بإدراج عدد الرسائل المراد حذفها**")
-	}else {
-		message.channel.bulkDelete(messagecount);
-        message.channel.send("**رسالة `" + messagecount + "` لقد تم حذف**").then(mes => 
-		mes.delete(3000)
-		);    
-	 }
-   }
-});
-
-
-
 client.on("guildMemberAdd", member => { //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204  //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044 
 var embed = new Discord.RichEmbed() //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
     .setThumbnail(member.user.avatarURL) //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
