@@ -110,7 +110,7 @@ client.on("guildMemberAdd", member => {
     const inviter = client.users.get(invite.inviter.id); //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
     const welcome = member.guild.channels.find(
       //! ,Haru#6204  ,  ! .𝒜ℋℳℰ𝒟 ♪ ♥#6950
-      channel => channel.name === "invites"       //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
+      channel => channel.name === "invite"       //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
     ); //! ,Haru#6204  ,  ! .𝒜ℋℳℰ𝒟 ♪ ♥#6950
     welcome.send(//! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
  /*Alpha Team copyRight 2019*/` <@${member.id}> **am bareza hata zhurawa ; la layan** <@${inviter.id}> , **(** ${invite.uses}**invites)**` //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
