@@ -113,7 +113,7 @@ client.on("guildMemberAdd", member => {
       channel => channel.name === "invites"       //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
     ); //! ,Haru#6204  ,  ! .𝒜ℋℳℰ𝒟 ♪ ♥#6950
     welcome.send(//! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
- /*Alpha Team copyRight 2019*/` <@${member.id}> **am bareza hata zhurawa ; la layan** <@${inviter.id}> , **(** ${invite.uses}**invites**` //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
+ /*Alpha Team copyRight 2019*/` <@${member.id}> **am bareza hata zhurawa ; la layan** <@${inviter.id}> , **(** ${invite.uses}**invites)**` //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
     ); //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
   }); //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
 }); //! ,Haru#6204  , Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044
@@ -126,7 +126,9 @@ client.on('guildMemberAdd', member => {
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
-  channel.send(`Welcome to the server, ${member}`);
+  channel.send(`${member},
+بەخێر بێیت بۆ سێرفەری پڕۆ پلەیەر
+welcome to pro player server💖💖`);
 });
 
 // Create an event listener for new guild members
