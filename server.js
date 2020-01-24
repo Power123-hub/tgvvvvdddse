@@ -226,7 +226,6 @@ function random_playing(bot) {
     `${client.users.size} Users`,
     `${client.channels.size} Channels`,
     `${client.guilds.size} Server`,
-    `#PP-UP`,
     `BY-REVA`
   ]; // You cant set anything playing you want it!
   let random = status[Math.floor(Math.random() * status.length)];
