@@ -239,6 +239,7 @@ client.on("ready", () => {
 With ${client.users.size} users
 With ${client.guilds.size} servers
 With ${client.channels.size} channels
+With BY-REVA
 =============================================
 `;
 
