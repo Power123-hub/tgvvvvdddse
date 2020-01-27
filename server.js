@@ -247,33 +247,32 @@ With BY-REVA
   setInterval(random_playing, 5000);
 });
 
-client.on('message', message => {
-    if(message.content.startsWith('=sg')) {
-    let text= message.content.split(' ').slice(1);
-const search = `https://lmgtfy.com/?q=${text}`.replace(" ");
-        if (!search) return message.channel.send(`Hey, what do you want me to google`);
+client.on("message", message => {
+  if (message.content.startsWith("=sg")) {
+    let text = message.content.split(" ").slice(1);
+    const search = `https://lmgtfy.com/?q=${text}`.replace(" ");
+    if (!search)
+      return message.channel.send(`Hey, what do you want me to google`);
     message.channel.send(search);
-}
+  }
 });
 
 client.on("message", async message => {
-  
   if (message.content.toLowerCase() === "=p") {
-        message.channel.startTyping();
+    message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
     }, Math.random() * (1 - 3) + 1 * 1000).then(
-         message.channel.send({
+      message.channel.send({
         files: [
           {
             name: "prfoilebycutie.png",
             attachment: `https://api.probot.io/profile/${message.author.id}?bg=default.png`
           }
-          
         ]
-      }) 
-      )
-    }
+      })
+    );
+  }
 });
 
 client.on("message", function(message) {
@@ -329,47 +328,50 @@ client.on("message", function(message) {
   }
 });
 
-    client.on("message", message => {
-          if (message.content === `${prefix}help`) {
-            let help = new Discord.RichEmbed()
-            .setColor("3333")
-           .setAuthor(`Commands List :`, client.user.avatarURL)
-             .addField ("public:","`ping`, `support`");
-            message.author.sendEmbed(help).catch(error => {
+client.on("message", message => {
+  if (message.content === `${prefix}help`) {
+    let help = new Discord.RichEmbed()
+      .setColor("3333")
+      .setAuthor(`Commands List :`, client.user.avatarURL)
+      .addField("public:", "`ping`, `support`");
+    message.author.sendEmbed(help).catch(error => {
       message.channel.send("Erorr Please Open Your Dms");
-    })
-          }
-        });
-client.on ("message",msg=>{
-var array = msg.content.split (" ")
-var room = msg.mentions.channels.first () 
-var args = array.slice (2).join (" ")
-var cmd = array [0]
-if (cmd === `=say`) {
-msg.delete ()
-room.send (args)}
-})
- 
+    });
+  }
+});
+client.on("message", msg => {
+  var array = msg.content.split(" ");
+  var room = msg.mentions.channels.first();
+  var args = array.slice(2).join(" ");
+  var cmd = array[0];
+  if (cmd === `=say`) {
+    msg.delete();
+    room.send(args);
+  }
+});
 
 ////////// SIMPLE EMBED PING PONG //////////
 client.on("message", message => {
   if (message.content === "=ping") {
     if (!message.channel.guild)
-      return message.reply("**Please Do not type bot commands in bot private chat**");
+      return message.reply(
+        "**Please Do not type bot commands in bot private chat**"
+      );
     let embed = new Discord.RichEmbed()
       .setColor("#E9967A")
-      .setDescription('=--> PONG <--=')
-      .setFooter('BOT NAME', message.author.avatarURL);
+      .setDescription("=--> PONG <--=")
+      .setFooter("BOT NAME", message.author.avatarURL);
     message.channel.sendEmbed(embed);
   }
 });
-
 
 ////////// AVATAR EMBED CODE //////////
 client.on("message", message => {
   if (message.content.startsWith("=avatar")) {
     if (!message.channel.guild)
-      return message.reply("**Please Do not type bot commands in bot private chat**");
+      return message.reply(
+        "**Please Do not type bot commands in bot private chat**"
+      );
     var mentionned = message.mentions.users.first();
     var malo7z;
     if (mentionned) {
@@ -379,27 +381,28 @@ client.on("message", message => {
     }
     const embed = new Discord.RichEmbed()
       .setColor("RED")
-      .setDescription('=> AVATAR <=')
+      .setDescription("=> AVATAR <=")
       .setImage(`${malo7z.avatarURL}`)
-      .setTitle('Click for get avatar URL')
-      .setURL( malo7z.avatarURL)
-      .setFooter('BOT NAME', malo7z.avatarURL);
-    
+      .setTitle("Click for get avatar URL")
+      .setURL(malo7z.avatarURL)
+      .setFooter("BOT NAME", malo7z.avatarURL);
+
     message.channel.sendEmbed(embed);
   }
 });
-
 
 ////////// INVITE THE BOT EMBED //////////
 client.on("message", message => {
   if (message.content === "+invite") {
     if (!message.channel.guild)
-      return message.reply("**Please Do not type bot commands in bot private chat**");
+      return message.reply(
+        "**Please Do not type bot commands in bot private chat**"
+      );
     let embed = new Discord.RichEmbed()
       .setColor("GREEN")
-      .setTitle('=--> INVITE BOT LINK <--=')
-      .setURL('https://anotepad.com/notes/3eq8kq5x') // Type Your Link here after ''
-      .setFooter('BOT NAME', message.author.avatarURL);
+      .setTitle("=--> INVITE BOT LINK <--=")
+      .setURL("https://anotepad.com/notes/3eq8kq5x") // Type Your Link here after ''
+      .setFooter("BOT NAME", message.author.avatarURL);
     message.channel.sendEmbed(embed);
   }
 });
@@ -408,83 +411,157 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.content === "=server") {
     if (!message.channel.guild)
-      return message.reply("**Please Do not type bot commands in bot private chat**");
+      return message.reply(
+        "**Please Do not type bot commands in bot private chat**"
+      );
     let embed = new Discord.RichEmbed()
       .setColor("GREEN")
-      .addField(':id: Server ID', ` ${message.guild.id}`)
-      .addField(':calendar: Created On', `${moment(message.guild.createdAt).format('D/MM/YYYY h:mm a')}`)
-      .addField(':crown: Owned by', `<@${message.guild.ownerID}>`)
-      .addField(':person_frowning: Members', `${message.guild.memberCount}`)
-      .setFooter('BOT NAME', message.author.avatarURL);
+      .addField(":id: Server ID", ` ${message.guild.id}`)
+      .addField(
+        ":calendar: Created On",
+        `${moment(message.guild.createdAt).format("D/MM/YYYY h:mm a")}`
+      )
+      .addField(":crown: Owned by", `<@${message.guild.ownerID}>`)
+      .addField(":person_frowning: Members", `${message.guild.memberCount}`)
+      .setFooter("BOT NAME", message.author.avatarURL);
     message.channel.sendEmbed(embed);
   }
 });
-  
 
 ////////// SOCAIL EMBED//////////
 client.on("message", message => {
   if (message.content === "=social") {
     if (!message.channel.guild)
-      return message.reply("**Please Do not type bot commands in bot private chat**");
+      return message.reply(
+        "**Please Do not type bot commands in bot private chat**"
+      );
     let embed = new Discord.RichEmbed()
       .setColor("#E9967A")
-      .addField('DISCORD : ', '< YOUR LINK HERE >')
-      .addField('TEAMSPEAK : ', '< YOUR LINK HERE >')
-      .addField('INSTGRAM : ', '< YOUR LINK HERE >')
-      .addField('WHATSAPP : ', '< YOUR LINK HERE >')
-      .addField('FACEBOOK : ', '< YOUR LINK HERE >')
-      .setFooter('BOT NAME', message.author.avatarURL);
+      .addField("DISCORD : ", "< YOUR LINK HERE >")
+      .addField("TEAMSPEAK : ", "< YOUR LINK HERE >")
+      .addField("INSTGRAM : ", "< YOUR LINK HERE >")
+      .addField("WHATSAPP : ", "< YOUR LINK HERE >")
+      .addField("FACEBOOK : ", "< YOUR LINK HERE >")
+      .setFooter("BOT NAME", message.author.avatarURL);
     message.channel.sendEmbed(embed);
   }
 });
 
+client.on("message", message => {
+  if (!message.channel.guild) return;
+  if (message.content.startsWith("=move")) {
+    if (message.member.hasPermission("MOVE_MEMBERS")) {
+      if (message.mentions.users.size === 0) {
+        return message.channel.send(
+          "``To Use Command write this : =move [USER]``"
+        );
+      }
+      if (message.member.voiceChannel != null) {
+        if (message.mentions.members.first().voiceChannel != null) {
+          var authorchannel = message.member.voiceChannelID;
+          var usermentioned = message.mentions.members.first().id;
+          var embed = new Discord.RichEmbed()
+            .setTitle("Succes!")
+            .setColor("#60dee1")
+            .setDescription(
+              `The user <@${usermentioned}> Moved To ur Room ^^  `
+            );
+          var embed = new Discord.RichEmbed()
+            .setTitle(`You are Moved in ${message.guild.name}`)
+            .setColor("RANDOM")
+            .setDescription(
+              `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
+            );
+          message.guild.members
+            .get(usermentioned)
+            .setVoiceChannel(authorchannel)
+            .then(m => message.channel.send(embed));
+          message.guild.members.get(usermentioned).send(embed);
+        } else {
+          message.channel.send(
+            "``You Can't move " +
+              message.mentions.members.first() +
+              " `This member not on a voice channel`"
+          );
+        }
+      } else {
+        message.channel.send("**``you need to be on voice channel``**");
+      }
+    } else {
+      message.react("✅");
+    }
+  }
+});
 
+client.on("message", message => {
+  if (message.content.toLowerCase() === "=cat") {
+    var request = require("request");
 
-client.on('message', message => {
-if(!message.channel.guild) return;
-if(message.content.startsWith('=move')) {
- if (message.member.hasPermission("MOVE_MEMBERS")) {
- if (message.mentions.users.size === 0) {
- return message.channel.send("``To Use Command write this : =move [USER]``")
-}
-if (message.member.voiceChannel != null) {
- if (message.mentions.members.first().voiceChannel != null) {
- var authorchannel = message.member.voiceChannelID;
- var usermentioned = message.mentions.members.first().id;
-var embed = new Discord.RichEmbed()
- .setTitle("Succes!")
- .setColor("#60dee1")
- .setDescription(`The user <@${usermentioned}> Moved To ur Room ^^  `)
-var embed = new Discord.RichEmbed()
-.setTitle(`You are Moved in ${message.guild.name}`)
- .setColor("RANDOM")
-.setDescription(`**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`)
- message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
-message.guild.members.get(usermentioned).send(embed)
-} else {
-message.channel.send("``You Can't move "+ message.mentions.members.first() +" `This member not on a voice channel`")
-}
-} else {
- message.channel.send("**``you need to be on voice channel``**")
-}
-} else {
-message.react("✅")
- }}});
-
-
-
-client.on('message', message => {
-    if (message.content.toLowerCase() === '=cat') {
-var request = require('request');
-
-request('http://aws.random.cat/meow', function (error, response, body) {
-    if (error) return console.log('Hata:', error);
-    else if (!error) { 
+    request("http://aws.random.cat/meow", function(error, response, body) {
+      if (error) return console.log("Hata:", error);
+      else if (!error) {
         var info = JSON.parse(body);
-  const foto = new Discord.RichEmbed()
-  .setImage(info.file)
-      message.channel.send(foto)
+        const foto = new Discord.RichEmbed().setImage(info.file);
+        message.channel.send(foto);
+      }
+    });
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith("=uptime")) {
+    let uptime = client.uptime;
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let notCompleted = true;
+    while (notCompleted) {
+      if (uptime >= 8.64e7) {
+        days++;
+        uptime -= 8.64e7;
+      } else if (uptime >= 3.6e6) {
+        hours++;
+        uptime -= 3.6e6;
+      } else if (uptime >= 60000) {
+        minutes++;
+        uptime -= 60000;
+      } else if (uptime >= 1000) {
+        seconds++;
+        uptime -= 1000;
+      }
+      if (uptime < 1000) notCompleted = false;
     }
-})
+    message.channel.send(
+      "`" + `${days} days, ${hours} hrs, ${minutes} min , ${seconds} sec` + "`"
+    );
+  }
+});
+
+client.on("ready", async ready => {
+  var guild = client.guilds.get("589854962067046412");
+  var channel = guild.channels.get("671243408114712576");
+  var channel2 = guild.channels.get("664908192014270485");
+  setInterval(() => {
+    var currentTime = new Date(),
+      hours = currentTime.getHours() + 3,
+      minutes = currentTime.getMinutes(),
+      Seconds = currentTime.getSeconds(),
+      Year = currentTime.getFullYear(),
+      Month = currentTime.getMonth() + 1,
+      Dat = currentTime.getDate();
+    if (minutes < 10) {
+      minutes = "0" + minutes;
     }
+    var suffix = "AM";
+    if (hours >= 12) {
+      suffix = "PM";
+      hours = hours - 12;
+    }
+    if (hours == 0) {
+      hours = 12;
+    }
+    channel.setName(`Time :- ${hours} : ${minutes} : ${Seconds} ${suffix}`);
+    channel2.setName('Date : ${Dat} - ${Month} - ${Year}');
+  }, 1000);
 });
