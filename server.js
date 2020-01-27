@@ -329,11 +329,18 @@ client.on("message", function(message) {
 });
 
 client.on("message", message => {
-  if (message.content === `${prefix}help`) {
+  if (message.content === `=help`) {
     let help = new Discord.RichEmbed()
-      .setColor("3333")
+      .setColor("RANDOM")
       .setAuthor(`Commands List :`, client.user.avatarURL)
-      .addField("public:", "`ping`, `support`");
+      .addField("chat daxa, bo daxstne chat")
+      .addFiled("chat bkawa, bo krdnaway chat")
+      .addFiled("=clear (1-1000), bo srenaway chat")
+      .addFiled("=bc (chat), bo nardne resala bo memberakan")
+      .addFiled("=sg (chat), bo danane linke search la google")
+      .addFiled("=p, bo profile member")
+      .addFiled("=report, bo report krdne kasek la bakar henane botaka")
+      .add
     message.author.sendEmbed(help).catch(error => {
       message.channel.send("Erorr Please Open Your Dms");
     });
