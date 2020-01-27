@@ -246,3 +246,32 @@ With BY-REVA
   console.log(clientlog);
   setInterval(random_playing, 5000);
 });
+
+client.on('message', message => {
+    if(message.content.startsWith('!sg')) {
+    let text= message.content.split(' ').slice(1);
+const search = `https://lmgtfy.com/?q=${text}`.replace(" ");
+        if (!search) return message.channel.send(`Hey, what do you want me to google`);
+    message.channel.send(search);
+}
+});
+
+client.on("message", async message => {
+  
+  if (message.content.toLowerCase() === "!p") {
+        message.channel.startTyping();
+    setTimeout(() => {
+      message.channel.stopTyping();
+    }, Math.random() * (1 - 3) + 1 * 1000).then(
+         message.channel.send({
+        files: [
+          {
+            name: "prfoilebycutie.png",
+            attachment: `https://api.probot.io/profile/${message.author.id}?bg=default.png`
+          }
+          
+        ]
+      }) 
+      )
+    }
+});
