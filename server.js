@@ -346,8 +346,6 @@ var room = msg.mentions.channels.first ()
 var args = array.slice (2).join (" ")
 var cmd = array [0]
 if (cmd === `=say`) {
-if (!msg.member.hasPermission ("ADMINISTRATOR")) return;
-if (!room) return msg.reply("please Provid a room ");
 msg.delete ()
 room.send (args)}
 })
@@ -440,20 +438,6 @@ client.on("message", message => {
   }
 });
 
-client.on("ready", async  => {
-setInterval(function(){
-client.channels.find('id', '653191535126642697').setName("V");
-client.channels.find('id', '653191535126642697').setName("VO");
-client.channels.find('id', '653191535126642697').setName("VOI");
-client.channels.find('id', '653191535126642697').setName("VOIC");
-client.channels.find('id', '653191535126642697').setName("VOICE");
-client.channels.find('id', '653191535126642697').setName("VOICE J");
-client.channels.find('id', '653191535126642697').setName("VOICE JO");
-client.channels.find('id', '653191535126642697').setName("VOICE JOI");
-client.channels.find('id', '653191535126642697').setName("VOICE JOIN");
-client.user.setStatus("DND")
-client.user.setActivity(`animated channel test`,{type:"STREAMING"}) }, 100);
-});
 
 
 client.on('message', message => {
@@ -487,13 +471,20 @@ message.channel.send("``You Can't move "+ message.mentions.members.first() +" `T
 message.react("✅")
  }}});
 
+
+
 client.on('message', message => {
-    if(message.content.startsWith('!!say')) {
-    let args = message.content.split(' ').slice(1);
-    let ar = args.join(' ');
+    if (message.content.toLowerCase() === '=cat') {
+var request = require('request');
 
-    message.channel.send(ar,{tts:true});
-}
+request('http://aws.random.cat/meow', function (error, response, body) {
+    if (error) return console.log('Hata:', error);
+    else if (!error) { 
+        var info = JSON.parse(body);
+  const foto = new Discord.RichEmbed()
+  .setImage(info.file)
+      message.channel.send(foto)
+    }
+})
+    }
 });
-
-say tts 
