@@ -421,21 +421,79 @@ client.on("message", message => {
     message.channel.sendEmbed(embed);
   }
 });
-    client.on("message", message => {
-          if (message.content === `${prefix}help`) {
-            let help = new Discord.RichEmbed()
-            .setColor("3333")
-           .setAuthor(`Commands List :`, client.user.avatarURL)
-             .addField ("public:","`ping`, `support`");
-            message.author.sendEmbed(help).catch(error => {
-      message.channel.send("Erorr Please Open Your Dms");
-    })
-          }
-        });
+  
+
+////////// SOCAIL EMBED//////////
+client.on("message", message => {
+  if (message.content === "=social") {
+    if (!message.channel.guild)
+      return message.reply("**Please Do not type bot commands in bot private chat**");
+    let embed = new Discord.RichEmbed()
+      .setColor("#E9967A")
+      .addField('DISCORD : ', '< YOUR LINK HERE >')
+      .addField('TEAMSPEAK : ', '< YOUR LINK HERE >')
+      .addField('INSTGRAM : ', '< YOUR LINK HERE >')
+      .addField('WHATSAPP : ', '< YOUR LINK HERE >')
+      .addField('FACEBOOK : ', '< YOUR LINK HERE >')
+      .setFooter('BOT NAME', message.author.avatarURL);
+    message.channel.sendEmbed(embed);
+  }
+});
+
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '653191535126642697').setName("V");
+client.channels.find('id', '653191535126642697').setName("VO");
+client.channels.find('id', '653191535126642697').setName("VOI");
+client.channels.find('id', '653191535126642697').setName("VOIC");
+client.channels.find('id', '653191535126642697').setName("VOICE");
+client.channels.find('id', '653191535126642697').setName("VOICE J");
+client.channels.find('id', '653191535126642697').setName("VOICE JO");
+client.channels.find('id', '653191535126642697').setName("VOICE JOI");
+client.channels.find('id', '653191535126642697').setName("VOICE JOIN");
+client.user.setStatus("DND")
+client.user.setActivity(`animated channel test`,{type:"STREAMING"}) }, 100);
+});
 
 
-Creator : Me
-Description  : كود هلب على الخاص و اذا الشخص مسكر خاصه يرسله
-**Plesae Open Your Dms
-**
- 
+client.on('message', message => {
+if(!message.channel.guild) return;
+if(message.content.startsWith('=move')) {
+ if (message.member.hasPermission("MOVE_MEMBERS")) {
+ if (message.mentions.users.size === 0) {
+ return message.channel.send("``To Use Command write this : =move [USER]``")
+}
+if (message.member.voiceChannel != null) {
+ if (message.mentions.members.first().voiceChannel != null) {
+ var authorchannel = message.member.voiceChannelID;
+ var usermentioned = message.mentions.members.first().id;
+var embed = new Discord.RichEmbed()
+ .setTitle("Succes!")
+ .setColor("#60dee1")
+ .setDescription(`The user <@${usermentioned}> Moved To ur Room ^^  `)
+var embed = new Discord.RichEmbed()
+.setTitle(`You are Moved in ${message.guild.name}`)
+ .setColor("RANDOM")
+.setDescription(`**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`)
+ message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+message.guild.members.get(usermentioned).send(embed)
+} else {
+message.channel.send("``You Can't move "+ message.mentions.members.first() +" `This member not on a voice channel`")
+}
+} else {
+ message.channel.send("**``you need to be on voice channel``**")
+}
+} else {
+message.react("✅")
+ }}});
+
+client.on('message', message => {
+    if(message.content.startsWith('!!say')) {
+    let args = message.content.split(' ').slice(1);
+    let ar = args.join(' ');
+
+    message.channel.send(ar,{tts:true});
+}
+});
+
+say tts 
