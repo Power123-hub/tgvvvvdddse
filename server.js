@@ -548,3 +548,16 @@ client.on("message", message => {
     );
   }
 });
+
+client.on("message", msg => {
+  var array = msg.content.split(" ");
+  var room = msg.mentions.channels.first();
+  var args = array.slice(2).join(" ");
+  var cmd = array[0];
+  if (cmd === "=say") {
+    if (!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if (!room) return msg.reply("please Provid a room ");
+    msg.delete();
+    room.send(args);
+  }
+});
