@@ -329,7 +329,7 @@ client.on("message", function(message) {
 });
 
 client.on("message", message => {
-  if (message.content === `=help`) {
+  if (message.content === "=help") {
     let help = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setAuthor(`Commands List :`, client.user.avatarURL)
@@ -340,7 +340,11 @@ client.on("message", message => {
       .addFiled("=sg (chat), bo danane linke search la google")
       .addFiled("=p, bo profile member")
       .addFiled("=report, bo report krdne kasek la bakar henane botaka")
-      .add
+      .addFiled("=ping, pong")
+      .addFiled("=avatar, bo wargrtne logoy sar profile kasek")
+      .addFiled("=server, bo pedane zanyary sabarat ba server")
+      .addFiled("=uptime, bo pegotne kate online botaka")
+      .addFiled("=move, bo move krdne kasek yan xot");
     message.author.sendEmbed(help).catch(error => {
       message.channel.send("Erorr Please Open Your Dms");
     });
@@ -544,7 +548,3 @@ client.on("message", message => {
     );
   }
 });
-
-
-
-
