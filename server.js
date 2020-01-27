@@ -248,7 +248,7 @@ With BY-REVA
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('!sg')) {
+    if(message.content.startsWith('=sg')) {
     let text= message.content.split(' ').slice(1);
 const search = `https://lmgtfy.com/?q=${text}`.replace(" ");
         if (!search) return message.channel.send(`Hey, what do you want me to google`);
@@ -258,7 +258,7 @@ const search = `https://lmgtfy.com/?q=${text}`.replace(" ");
 
 client.on("message", async message => {
   
-  if (message.content.toLowerCase() === "!p") {
+  if (message.content.toLowerCase() === "=p") {
         message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
@@ -275,3 +275,167 @@ client.on("message", async message => {
       )
     }
 });
+
+client.on("message", function(message) {
+  if (message.content.startsWith("=report")) {
+    let messageArgs = message.content
+      .split(" ")
+      .slice(1)
+      .join(" ");
+    let messageReason = message.content
+      .split(" ")
+      .slice(2)
+      .join(" ");
+    if (!messageReason) return message.reply("**# Specify a reason!**");
+    let mUser = message.mentions.users.first();
+    if (!mUser) return message.channel.send("Couldn't find user.");
+    let Rembed = new Discord.RichEmbed()
+      .setTitle("`New Report!`")
+      .setThumbnail(message.author.avatarURL)
+      .addField("**# - Reported User:**", mUser, true)
+      .addField("**# - Reported User ID:**", mUser.id, true)
+      .addField("**# - Reason:**", messageReason, true)
+      .addField("**# - Channel:**", message.channel, true)
+      .addField("**# - Time:**", message.createdAt, true)
+      .setFooter("لو ان الابلاغ فيه مزح راح يتعرض صاحب الابلاغ لقوبات");
+    message.channel.send(Rembed);
+    message.channel
+      .send("__Are you sure you want to send this to the Server owner??__")
+      .then(msg => {
+        msg.react("✅");
+        msg
+          .react("❌")
+          .then(() => msg.react("❌"))
+          .then(() => msg.react("✅"));
+        let reaction1Filter = (reaction, user) =>
+          reaction.emoji.name === "✅" && user.id === message.author.id;
+        let reaction2Filter = (reaction, user) =>
+          reaction.emoji.name === "❌" && user.id === message.author.id;
+
+        let reaction1 = msg.createReactionCollector(reaction1Filter, {
+          time: 12000
+        });
+        let reaction2 = msg.createReactionCollector(reaction2Filter, {
+          time: 12000
+        });
+        reaction1.on("collect", r => {
+          message.guild.owner.send(Rembed);
+          message.reply("**# - Done! 🎇**");
+        });
+        reaction2.on("collect", r => {
+          message.reply("**# - Canceled!**");
+        });
+      });
+  }
+});
+
+    client.on("message", message => {
+          if (message.content === `${prefix}help`) {
+            let help = new Discord.RichEmbed()
+            .setColor("3333")
+           .setAuthor(`Commands List :`, client.user.avatarURL)
+             .addField ("public:","`ping`, `support`");
+            message.author.sendEmbed(help).catch(error => {
+      message.channel.send("Erorr Please Open Your Dms");
+    })
+          }
+        });
+client.on ("message",msg=>{
+var array = msg.content.split (" ")
+var room = msg.mentions.channels.first () 
+var args = array.slice (2).join (" ")
+var cmd = array [0]
+if (cmd === `=say`) {
+if (!msg.member.hasPermission ("ADMINISTRATOR")) return;
+if (!room) return msg.reply("please Provid a room ");
+msg.delete ()
+room.send (args)}
+})
+ 
+
+////////// SIMPLE EMBED PING PONG //////////
+client.on("message", message => {
+  if (message.content === "=ping") {
+    if (!message.channel.guild)
+      return message.reply("**Please Do not type bot commands in bot private chat**");
+    let embed = new Discord.RichEmbed()
+      .setColor("#E9967A")
+      .setDescription('=--> PONG <--=')
+      .setFooter('BOT NAME', message.author.avatarURL);
+    message.channel.sendEmbed(embed);
+  }
+});
+
+
+////////// AVATAR EMBED CODE //////////
+client.on("message", message => {
+  if (message.content.startsWith("=avatar")) {
+    if (!message.channel.guild)
+      return message.reply("**Please Do not type bot commands in bot private chat**");
+    var mentionned = message.mentions.users.first();
+    var malo7z;
+    if (mentionned) {
+      var malo7z = mentionned;
+    } else {
+      var malo7z = message.author;
+    }
+    const embed = new Discord.RichEmbed()
+      .setColor("RED")
+      .setDescription('=> AVATAR <=')
+      .setImage(`${malo7z.avatarURL}`)
+      .setTitle('Click for get avatar URL')
+      .setURL( malo7z.avatarURL)
+      .setFooter('BOT NAME', malo7z.avatarURL);
+    
+    message.channel.sendEmbed(embed);
+  }
+});
+
+
+////////// INVITE THE BOT EMBED //////////
+client.on("message", message => {
+  if (message.content === "+invite") {
+    if (!message.channel.guild)
+      return message.reply("**Please Do not type bot commands in bot private chat**");
+    let embed = new Discord.RichEmbed()
+      .setColor("GREEN")
+      .setTitle('=--> INVITE BOT LINK <--=')
+      .setURL('https://anotepad.com/notes/3eq8kq5x') // Type Your Link here after ''
+      .setFooter('BOT NAME', message.author.avatarURL);
+    message.channel.sendEmbed(embed);
+  }
+});
+
+////////// SERVER INFO EMBED //////////
+client.on("message", message => {
+  if (message.content === "=server") {
+    if (!message.channel.guild)
+      return message.reply("**Please Do not type bot commands in bot private chat**");
+    let embed = new Discord.RichEmbed()
+      .setColor("GREEN")
+      .addField(':id: Server ID', ` ${message.guild.id}`)
+      .addField(':calendar: Created On', `${moment(message.guild.createdAt).format('D/MM/YYYY h:mm a')}`)
+      .addField(':crown: Owned by', `<@${message.guild.ownerID}>`)
+      .addField(':person_frowning: Members', `${message.guild.memberCount}`)
+      .setFooter('BOT NAME', message.author.avatarURL);
+    message.channel.sendEmbed(embed);
+  }
+});
+    client.on("message", message => {
+          if (message.content === `${prefix}help`) {
+            let help = new Discord.RichEmbed()
+            .setColor("3333")
+           .setAuthor(`Commands List :`, client.user.avatarURL)
+             .addField ("public:","`ping`, `support`");
+            message.author.sendEmbed(help).catch(error => {
+      message.channel.send("Erorr Please Open Your Dms");
+    })
+          }
+        });
+
+
+Creator : Me
+Description  : كود هلب على الخاص و اذا الشخص مسكر خاصه يرسله
+**Plesae Open Your Dms
+**
+ 
