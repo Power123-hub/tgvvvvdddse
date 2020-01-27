@@ -561,3 +561,31 @@ client.on("message", msg => {
     room.send(args);
   }
 });
+
+client.on("ready", async ready => {
+  var guild = client.guilds.get("671441510209945632");
+  var channel = guild.channels.get("671441429511405588");
+  var channel2 = guild.channels.get("635859390884347924");             
+  setInterval(() => {
+    var currentTime = new Date(),
+      hours = currentTime.getHours() + 3,
+      minutes = currentTime.getMinutes(), 
+      Seconds = currentTime.getSeconds(),
+      Year = currentTime.getFullYear(),
+      Month = currentTime.getMonth() + 1,
+      Dat = currentTime.getDate();
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    var suffix = "AM";
+    if (hours >= 12) {
+      suffix = "PM";
+      hours = hours - 12;
+    }
+    if (hours == 0) {
+      hours = 12;
+    }
+    channel.setName("Time ⏰ :- ${hours} : ${minutes} : ${Seconds} ${suffix}");
+    channel2.setName("Date  📅 : ${Dat} - ${Month} - ${Year}");
+  }, 1000);
+});
