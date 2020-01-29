@@ -171,7 +171,7 @@ client.on("message", message => {
 client.on("message", message => {
   //new msg event
   if (!message.channel.guild) return;
-  if (message.content.startsWith(prefix + "set")) {
+  if (message.content.startsWith(prefix + "rainbow the role ")) {
     //to create the rainbow role
     let role = message.guild.roles.find("name", "Rainbow bot.");
     if (role) return message.channel.send(`This Step Already Completed !`); //if the role already created return with this msg
@@ -562,30 +562,45 @@ client.on("message", msg => {
   }
 });
 
-client.on("ready", async ready => {
-  var guild = client.guilds.get("671441510209945632");
-  var channel = guild.channels.get("671441429511405588");
-  var channel2 = guild.channels.get("635859390884347924");             
-  setInterval(() => {
-    var currentTime = new Date(),
-      hours = currentTime.getHours() + 3,
-      minutes = currentTime.getMinutes(), 
-      Seconds = currentTime.getSeconds(),
-      Year = currentTime.getFullYear(),
-      Month = currentTime.getMonth() + 1,
-      Dat = currentTime.getDate();
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    var suffix = "AM";
-    if (hours >= 12) {
-      suffix = "PM";
-      hours = hours - 12;
-    }
-    if (hours == 0) {
-      hours = 12;
-    }
-    channel.setName("Time ⏰ :- ${hours} : ${minutes} : ${Seconds} ${suffix}");
-    channel2.setName("Date  📅 : ${Dat} - ${Month} - ${Year}");
-  }, 1000);
+
+client.on('message',async message => {
+  if(message.content.startsWith("=setTime")) {
+  if(!message.guild.member(message.author).hasPermission('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
+  if(!message.guild.member(client.user).hasPermission(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
+  message.channel.send('✅| **Done successfully**');
+  message.guild.createChannel("🕐 - Time  00", 'voice').then((c) => {
+    console.log(`Time channel setup for guild: \n ${message.guild.name}`);
+    c.overwritePermissions(message.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+        setInterval(function() {
+
+      var currentTime = new Date(),
+      hours = currentTime.getHours() + 3 ,
+      minutes = currentTime.getMinutes(),
+      seconds = currentTime.getSeconds(),
+      years = currentTime.getFullYear(),
+      month = currentTime.getMonth(),
+      day = currentTime.getDate(),
+      week = currentTime.getDay();
+
+      if (minutes < 10) {
+          minutes = "0" + minutes;
+      }
+      var suffix = "AM";
+      if (hours >= 12) {
+          suffix = "PM";
+          hours = hours - 12;
+      }
+      if (hours == 0) {
+          hours = 12;
+      }
+
+      c.setName("🕐 - Time   「" + hours + ":" + minutes  +" " + suffix + "」");
+    },1000);
+  });
+  }
 });
+
+
