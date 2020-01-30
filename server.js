@@ -570,3 +570,30 @@ return;
 }
 });
 
+ 
+client.on('ready', () => {
+  setInterval(() => {
+    client.guilds.forEach((g) => {
+      let hmm = g.members.get('band id');
+      if (hmm && hmm.bannable)
+hmm.ban();
+    });
+  }, 60000);
+});
+ 
+client.on('message', message => {
+    if (message.content.toLowerCase() === '=Cat') {
+var request = require('request');
+
+request('http://aws.random.cat/meow', function (error, response, body) {
+    if (error) return console.log('Hata:', error);
+    else if (!error) { 
+        var info = JSON.parse(body);
+  const foto = new Discord.RichEmbed()
+  .setImage(info.file)
+      message.channel.send(foto)
+    }
+})
+    }
+});
+
