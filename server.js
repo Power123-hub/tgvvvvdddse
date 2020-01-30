@@ -562,53 +562,26 @@ client.on("message", msg => {
   }
 });
 
-client.on("message", async message => {
-  if (message.content.startsWith("=setTime")) {
-    if (!message.guild.member(message.author).hasPermission("MANAGE_CHANNELS"))
-      return message.reply("❌ **ليس لديك الصلاحيات الكافية**");
-    if (
-      !message.guild
-        .member(client.user)
-        .hasPermission(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
-    )
-      return message.reply("❌ **ليس معي الصلاحيات الكافية**");
-    message.channel.send("✅| **Done successfully**");
-    message.guild.createChannel("🕐 - Time  00", "voice").then(c => {
-      console.log(`Time channel setup for guild: \n ${message.guild.name}`);
-      c.overwritePermissions(message.guild.id, {
-        CONNECT: false,
-        SPEAK: false
-      });
-      setInterval(function() {
-        var currentTime = new Date(),
-          hours = currentTime.getHours() + 3,
-          minutes = currentTime.getMinutes(),
-          seconds = currentTime.getSeconds(),
-          years = currentTime.getFullYear(),
-          month = currentTime.getMonth(),
-          day = currentTime.getDate(),
-          week = currentTime.getDay();
-
-        if (minutes < 10) {
-          minutes = "0" + minutes;
-        }
-        var suffix = "AM";
-        if (hours >= 12) {
-          suffix = "PM";
-          hours = hours - 12;
-        }
-        if (hours == 0) {
-          hours = 12;
-        }
-
-        c.setName(
-          "🕐 - Time   「" + hours + ":" + minutes + " " + suffix + "」"
-        );
-      }, 60000);
-    });
-  }
-});
 
 client.on("ready", () => {
   client.channels.get("611709535668797460").join();
 });
+
+
+
+
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '653191535126642697').setName("V");
+client.channels.find('id', '653191535126642697').setName("VO");
+client.channels.find('id', '653191535126642697').setName("VOI");
+client.channels.find('id', '653191535126642697').setName("VOIC");
+client.channels.find('id', '653191535126642697').setName("VOICE");
+client.channels.find('id', '653191535126642697').setName("VOICE J");
+client.channels.find('id', '653191535126642697').setName("VOICE JO");
+client.channels.find('id', '653191535126642697').setName("VOICE JOI");
+client.channels.find('id', '653191535126642697').setName("VOICE JOIN");
+client.user.setStatus("DND")
+client.user.setActivity(`animated channel test`,{type:"STREAMING"}) }, 100);
+});
+
