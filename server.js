@@ -569,19 +569,3 @@ client.on("ready", () => {
 
 
 
-
-client.on("ready", async  => {
-setInterval(function(){
-client.channels.find('id', '653191535126642697').setName("V");
-client.channels.find('id', '653191535126642697').setName("VO");
-client.channels.find('id', '653191535126642697').setName("VOI");
-client.channels.find('id', '653191535126642697').setName("VOIC");
-client.channels.find('id', '653191535126642697').setName("VOICE");
-client.channels.find('id', '653191535126642697').setName("VOICE J");
-client.channels.find('id', '653191535126642697').setName("VOICE JO");
-client.channels.find('id', '653191535126642697').setName("VOICE JOI");
-client.channels.find('id', '653191535126642697').setName("VOICE JOIN");
-client.user.setStatus("DND")
-client.user.setActivity(`animated channel test`,{type:"STREAMING"}) }, 100);
-});
-
