@@ -329,36 +329,14 @@ client.on("message", function(message) {
 });
 
 client.on('message', msg => {
-  if (msg.content === "help") {
+  if (msg.content === "=help") {
 msg.react("✅");
-    msg.author.send('اوامر بوتك');
+    msg.author.send('BY REVA'),
+    send('
   }
 });
 //BY 77
 // BY 77 
-// BY 77 
-
-
-Description : امر هيلب بمجرد ما تكتب امر الهيلب يحط رياكت عرسالتك ويرسلك الاوامر الي انت تختارها خاص تقريبا كود الهيلب ذا بدون امبد وزيه زي البرو بوت بالزبط الا باختلافات بسيطة جدا ما تلاحظ 
-
-By : @7
-      .addField("chat daxa, bo daxstne chat")
-      .addFiled("chat bkawa, bo krdnaway chat")
-      .addFiled("=clear (1-1000), bo srenaway chat")
-      .addFiled("=bc (chat), bo nardne resala bo memberakan")
-      .addFiled("=sg (chat), bo danane linke search la google")
-      .addFiled("=p, bo profile member")
-      .addFiled("=report, bo report krdne kasek la bakar henane botaka")
-      .addFiled("=ping, pong")
-      .addFiled("=avatar, bo wargrtne logoy sar profile kasek")
-      .addFiled("=server, bo pedane zanyary sabarat ba server")
-      .addFiled("=uptime, bo pegotne kate online botaka")
-      .addFiled("=move, bo move krdne kasek yan xot");
-    message.author.sendEmbed(help).catch(error => {
-      message.channel.send("Erorr Please Open Your Dms");
-    });
-  }
-});
 client.on("message", msg => {
   var array = msg.content.split(" ");
   var room = msg.mentions.channels.first();
@@ -513,8 +491,6 @@ client.on("message", message => {
   }
 });
 
-
-
 client.on("message", message => {
   if (message.content.startsWith("=uptime")) {
     let uptime = client.uptime;
@@ -545,77 +521,75 @@ client.on("message", message => {
   }
 });
 
-client.on('message', message => {
-    if(message.content.startsWith('=say')) {
-    let args = message.content.split(' ').slice(1);
-    let ar = args.join(' ');
+client.on("message", message => {
+  if (message.content.startsWith("=say")) {
+    let args = message.content.split(" ").slice(1);
+    let ar = args.join(" ");
 
-    message.channel.send(ar,{tts:true});
-}
+    message.channel.send(ar, { tts: true });
+  }
 });
-
-
 
 client.on("ready", () => {
   client.channels.get("611709535668797460").join();
 });
 
-
-
 client.on("message", async message => {
-if(message.author.bot) return;
-let messageArray = message.content.split (" ");
-let args = messageArray.slice(1);
-if (message.content.startsWith(prefix + "8ball")) {
-if(!args[1]) return message.reply("?");
-let replies = [":Genny: Yup.", ":Genny: No.", ":Genny: I dont know.", ":Genny: Please ask me later"];
-let result = Math.floor((Math.random() * replies.length));
-let question = args.slice(1).join(" ");
-message.channel.sendMessage(`${replies[Math.floor(Math.random() * replies.length)]}`);
-if (!args[0]) {
-message.edit('1')
-return;
-}
-}
-});
-
- 
-client.on('ready', () => {
-  setInterval(() => {
-    client.guilds.forEach((g) => {
-      let hmm = g.members.get('band id');
-      if (hmm && hmm.bannable)
-hmm.ban();
-    });
-  }, 60000);
-});
- 
-client.on('message', message => {
-    if (message.content.toLowerCase() === '=Cat') {
-var request = require('request');
-
-request('http://aws.random.cat/meow', function (error, response, body) {
-    if (error) return console.log('Hata:', error);
-    else if (!error) { 
-        var info = JSON.parse(body);
-  const foto = new Discord.RichEmbed()
-  .setImage(info.file)
-      message.channel.send(foto)
+  if (message.author.bot) return;
+  let messageArray = message.content.split(" ");
+  let args = messageArray.slice(1);
+  if (message.content.startsWith(prefix + "8ball")) {
+    if (!args[1]) return message.reply("?");
+    let replies = [
+      ":Genny: Yup.",
+      ":Genny: No.",
+      ":Genny: I dont know.",
+      ":Genny: Please ask me later"
+    ];
+    let result = Math.floor(Math.random() * replies.length);
+    let question = args.slice(1).join(" ");
+    message.channel.sendMessage(
+      `${replies[Math.floor(Math.random() * replies.length)]}`
+    );
+    if (!args[0]) {
+      message.edit("1");
+      return;
     }
-})
-    }
-});
-
- 
-client.on("message", msg => {
-  if (msg.content === "@《PP》REVA") {  
-    msg.reply("CREDIT BNERA"); 
   }
 });
 
- 
+client.on("ready", () => {
+  setInterval(() => {
+    client.guilds.forEach(g => {
+      let hmm = g.members.get("band id");
+      if (hmm && hmm.bannable) hmm.ban();
+    });
+  }, 60000);
+});
+
+client.on("message", message => {
+  if (message.content.toLowerCase() === "=Cat") {
+    var request = require("request");
+
+    request("http://aws.random.cat/meow", function(error, response, body) {
+      if (error) return console.log("Hata:", error);
+      else if (!error) {
+        var info = JSON.parse(body);
+        const foto = new Discord.RichEmbed().setImage(info.file);
+        message.channel.send(foto);
+      }
+    });
+  }
+});
+
 client.on("message", msg => {
-  if (msg.content === "Reva keya") {  
-    msg.reply("🔥BEAST DEVELOPER ON THE WORLD🔥"); 
+  if (msg.content === "@《PP》REVA") {
+    msg.reply("CREDIT BNERA");
+  }
+});
+
+client.on("message", msg => {
+  if (msg.content === "Reva keya") {
+    msg.reply("🔥BEAST DEVELOPER ON THE WORLD🔥");
   }
 });
