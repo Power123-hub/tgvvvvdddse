@@ -328,11 +328,20 @@ client.on("message", function(message) {
   }
 });
 
-client.on("message", message => {
-  if (message.content === "=help") {
-    let help = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setAuthor(`Commands List :`, client.user.avatarURL)
+client.on('message', msg => {
+  if (msg.content === "help") {
+msg.react("✅");
+    msg.author.send('اوامر بوتك');
+  }
+});
+//BY 77
+// BY 77 
+// BY 77 
+
+
+Description : امر هيلب بمجرد ما تكتب امر الهيلب يحط رياكت عرسالتك ويرسلك الاوامر الي انت تختارها خاص تقريبا كود الهيلب ذا بدون امبد وزيه زي البرو بوت بالزبط الا باختلافات بسيطة جدا ما تلاحظ 
+
+By : @7
       .addField("chat daxa, bo daxstne chat")
       .addFiled("chat bkawa, bo krdnaway chat")
       .addFiled("=clear (1-1000), bo srenaway chat")
@@ -597,3 +606,16 @@ request('http://aws.random.cat/meow', function (error, response, body) {
     }
 });
 
+ 
+client.on("message", msg => {
+  if (msg.content === "@《PP》REVA") {  
+    msg.reply("CREDIT BNERA"); 
+  }
+});
+
+ 
+client.on("message", msg => {
+  if (msg.content === "Reva keya") {  
+    msg.reply("🔥BEAST DEVELOPER ON THE WORLD🔥"); 
+  }
+});
