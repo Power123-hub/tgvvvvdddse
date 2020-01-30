@@ -504,20 +504,7 @@ client.on("message", message => {
   }
 });
 
-client.on("message", message => {
-  if (message.content.toLowerCase() === "=cat") {
-    var request = require("request");
 
-    request("http://aws.random.cat/meow", function(error, response, body) {
-      if (error) return console.log("Hata:", error);
-      else if (!error) {
-        var info = JSON.parse(body);
-        const foto = new Discord.RichEmbed().setImage(info.file);
-        message.channel.send(foto);
-      }
-    });
-  }
-});
 
 client.on("message", message => {
   if (message.content.startsWith("=uptime")) {
@@ -549,18 +536,15 @@ client.on("message", message => {
   }
 });
 
-client.on("message", msg => {
-  var array = msg.content.split(" ");
-  var room = msg.mentions.channels.first();
-  var args = array.slice(2).join(" ");
-  var cmd = array[0];
-  if (cmd === "=say") {
-    if (!msg.member.hasPermission("ADMINISTRATOR")) return;
-    if (!room) return msg.reply("please Provid a room ");
-    msg.delete();
-    room.send(args);
-  }
+client.on('message', message => {
+    if(message.content.startsWith('=say')) {
+    let args = message.content.split(' ').slice(1);
+    let ar = args.join(' ');
+
+    message.channel.send(ar,{tts:true});
+}
 });
+
 
 
 client.on("ready", () => {
@@ -568,4 +552,21 @@ client.on("ready", () => {
 });
 
 
+
+client.on("message", async message => {
+if(message.author.bot) return;
+let messageArray = message.content.split (" ");
+let args = messageArray.slice(1);
+if (message.content.startsWith(prefix + "8ball")) {
+if(!args[1]) return message.reply("?");
+let replies = [":Genny: Yup.", ":Genny: No.", ":Genny: I dont know.", ":Genny: Please ask me later"];
+let result = Math.floor((Math.random() * replies.length));
+let question = args.slice(1).join(" ");
+message.channel.sendMessage(`${replies[Math.floor(Math.random() * replies.length)]}`);
+if (!args[0]) {
+message.edit('1')
+return;
+}
+}
+});
 
