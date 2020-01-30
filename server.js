@@ -598,9 +598,24 @@ client.on('message',async message => {
       }
 
       c.setName("🕐 - Time   「" + hours + ":" + minutes  +" " + suffix + "」");
-    },1000);
+    },4000);
   });
   }
 });
 
 
+client.on("ready", () => {
+    client.channels.get("672448830066786332").join()
+})
+
+const utils = require("../global/utils");
+const config = require("../settiings/config.json");
+
+module.exports.run = async (bot, message, args) => {
+  let VC = message.member.voiceChannel;
+  if (!VC)
+    return [
+      message.delete(),
+      utils.timed_msg(
+        utils.cmd_fail(
+          `**_${message.author}, بەھۆی ئەوەی لە ڤۆیس نی ناتوا
