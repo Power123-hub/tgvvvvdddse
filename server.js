@@ -95,17 +95,7 @@ client.on("ready", () => {
       invites[king.id] = guildInvites; 
     }); //! .𝒜ℋℳℰ𝒟 ♪ ♥#6950  ,  ! ,Haru#6204
   }); //! .𝒜ℋℳℰ𝒟 ♪ ♥#6950  ,  ! ,Haru#6204
-}); //! .𝒜ℋℳℰ𝒟 ♪ ♥#6950  ,  ! ,Haru#6204
-//! .𝒜ℋℳℰ𝒟 ♪ ♥#6950  ,  ! ,Haru#6204
-client.on("guildMemberAdd", member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const gamer = invites[member.guild.id]; 
-    invites[member.guild.id] = guildInvites; 
-    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses); 
-    const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(
-    
-
+}); 
 // Create an event listener for new guild members
 client.on("guildMemberAdd", member => {
   // Send the message to a designated channel on a server:
