@@ -604,7 +604,7 @@ client.on("message", async message => {
         c.setName(
           "🕐 - Time   「" + hours + ":" + minutes + " " + suffix + "」"
         );
-      }, 4000);
+      }, 60000);
     });
   }
 });
