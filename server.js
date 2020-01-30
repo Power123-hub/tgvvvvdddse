@@ -328,15 +328,14 @@ client.on("message", function(message) {
   }
 });
 
-client.on('message', msg => {
+client.on("message", msg => {
   if (msg.content === "=help") {
-msg.react("✅");
-    msg.author.send('BY REVA'),
-    send('
+    msg.react("✅");
+    msg.author.send("MY OWNER IS REVA");
   }
 });
 //BY 77
-// BY 77 
+// BY 77
 client.on("message", msg => {
   var array = msg.content.split(" ");
   var room = msg.mentions.channels.first();
@@ -541,10 +540,10 @@ client.on("message", async message => {
   if (message.content.startsWith(prefix + "8ball")) {
     if (!args[1]) return message.reply("?");
     let replies = [
-      ":Genny: Yup.",
-      ":Genny: No.",
-      ":Genny: I dont know.",
-      ":Genny: Please ask me later"
+      "😁 Yup.",
+      "🤗 No.",
+      "🙄 I dont know.",
+      "🤨 Please ask me later"
     ];
     let result = Math.floor(Math.random() * replies.length);
     let question = args.slice(1).join(" ");
@@ -593,3 +592,5 @@ client.on("message", msg => {
     msg.reply("🔥BEAST DEVELOPER ON THE WORLD🔥");
   }
 });
+
+ 
