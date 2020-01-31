@@ -571,16 +571,26 @@ client.on("message", msg => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content ===  "=vip") {
-    message.rech
+  if (message.content ===  "=help") {
+    message.react('✔');
 
-    message.channel.send(`**asjsjd**`);
-
-    message.author.sendMessage(`**__Qualtiy VIP__**  
-** setname • تغبر اسم البوت **
-** setavatar • تغبر صورة البوت **
-** setst • تغبر حالة البوت للستريمينق **
-** setpl • تغبر حالة البوت بلايينق **
+    message.author.sendMessage(`**COMMAND THE BOT**  
+** =help •**
+** =clear (1-1000) •**
+** chat daxa •**
+** chat bkawa •**
+**=bc •**
+**=sg •**
+**=p •**
+**=cat •**
+**=report •**
+**=ping •**
+**=avatar •**
+**=server •**
+**=invite •**
+**=social •**
+**=move •**
+**=uptime •**
 `);
   }
 });
