@@ -598,6 +598,6 @@ client.on("message", message => {
 
 client.on("ready", () => {
   setInterval(function() {
-    client.channels.get("67276271823486976").send("hello");
-  }, 60000);
+    client.channels.get("67276271823486976").send("** @everyone HAR YAKAW PANJA BA LOGOY XOYAWA BNET **").react("✔");
+  }, 24000);
 });
