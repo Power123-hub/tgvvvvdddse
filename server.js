@@ -569,4 +569,22 @@ client.on("message", msg => {
   }
 });
 
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (message.content === prefix + "vip") {
+    if (message.author.id !== message.guild.owner.user.id)
+      return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
+
+    message.channel.send(`**| تم ارسال اوامر اعدادات البوت..**`);
+
+    message.author.sendMessage(`**__Qualtiy VIP__**  
+** setname • تغبر اسم البوت **
+** setavatar • تغبر صورة البوت **
+** setst • تغبر حالة البوت للستريمينق **
+** setpl • تغبر حالة البوت بلايينق **
+`);
+  }
+});
  
+
+Description : امر هيلب بامبد طبعا امر الهيلب هذا ميقدر يستخدمه الا صاحب السيرفر ويكون فيه اوامر البوت المهمة
