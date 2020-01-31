@@ -601,4 +601,3 @@ client.on("ready", () => {
     client.channels.get("672762718234869760").send("logoy xotan dagrn");
   }, 86400000);
 });
-
