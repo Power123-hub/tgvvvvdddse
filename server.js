@@ -598,6 +598,7 @@ client.on("message", message => {
 
 client.on("ready", () => {
   setInterval(function() {
-    client.channels.get("67276271823486976").send("** @everyone HAR YAKAW PANJA BA LOGOY XOYAWA BNET **").react("✔");
-  }, 24000);
+    client.channels.get("672762718234869760").send("logoy xotan dagrn");
+  }, 86400000);
 });
+
