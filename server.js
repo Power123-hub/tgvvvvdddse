@@ -571,7 +571,7 @@ client.on("message", msg => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content === prefix + "vip") {
+  if (message.content ===  "=vip") {
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
 
@@ -586,5 +586,3 @@ client.on("message", message => {
   }
 });
  
-
-Description : امر هيلب بامبد طبعا امر الهيلب هذا ميقدر يستخدمه الا صاحب السيرفر ويكون فيه اوامر البوت المهمة
