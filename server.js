@@ -596,4 +596,11 @@ client.on("message", message => {
   }
 });
 
- 
+
+client.on("message", async message => {
+  if (message.content.startsWith("=slaw")) {
+    message.channel.send("**yala day**");
+    86;
+
+  }
+});
