@@ -617,12 +617,3 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
     message.channel.send("Changing The Avatar To :**${argresult}**" );
 }
 });
-
- client.on('message', async message => {
-    if(message.content.includes('!verfiy')){
-        let verfiy = message.guild.roles.find(`name`, "Members");
-  if(!message.channel.guild) return;
-  message.delete()
-  message.member.addRole(verfiy);
-    }
-  });
