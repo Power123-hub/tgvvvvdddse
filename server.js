@@ -602,16 +602,3 @@ client.on("ready", () => {
   }, 86400000);
 });
 
-
-  client.on('message', message => {
-   
-const remove_words = ["#verify", "#profile", "#credits", "#user", "#top", "#daily"];
-
-const cmd_channel = "CHANNEL ID";
-
-if(message.content.toLowerCase().startsWith(remove_words) && message.channel.id !== cmd_channel) {
- 
-  if(!message.channel.guild) return;
-  message.delete();
-    }
-  });
