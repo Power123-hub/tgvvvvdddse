@@ -618,14 +618,11 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 }
 });
 
-let spaces = "                      "
-client.on("message", message => {
-    if(message.content.startsWith("roles")) {
-        const roles = []
-            message.guild.roles.forEach(c => {
-            roles.push(c.name+spaces.substring(c.name.length)+c.members.size+" members");
-        });
-        message.channel.send("\`\`\`"+roles.join("\n")+"\`\`\`");
+ client.on('message', async message => {
+    if(message.content.includes('!verfiy')){
+        let verfiy = message.guild.roles.find(`name`, "Members");
+  if(!message.channel.guild) return;
+  message.delete()
+  message.member.addRole(verfiy);
     }
-
-          });
+  });
