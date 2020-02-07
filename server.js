@@ -602,23 +602,30 @@ client.on("ready", () => {
   }, 86400000);
 });
 
-client.on("message", message => {
-  const remove_words = [
-    "#verify",
-    "#profile",
-    "#credits",
-    "#user",
-    "#top",
-    "#daily"
-  ];
 
-  const cmd_channel = "664908192014270485c";
-
-  if (
-    message.content.toLowerCase().startsWith(remove_words) &&
-    message.channel.id !== cmd_channel
-  ) {
-    if (!message.channel.guild) return;
-    message.delete();
-  }
+const developers = ['607676199195508822'];
+const adminprefix = "=";
+client.on('message', message => {
+    var argresult = message.content.split( ).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send("Changing The Name To ..**${argresult}**" )
+} else
+if (message.content.startsWith(adminprefix + 'setavatar')) {
+  client.user.setAvatar(argresult);
+    message.channel.send("Changing The Avatar To :**${argresult}**" );
+}
 });
+
+let spaces = "                      "
+client.on("message", message => {
+    if(message.content.startsWith("roles")) {
+        const roles = []
+            message.guild.roles.forEach(c => {
+            roles.push(c.name+spaces.substring(c.name.length)+c.members.size+" members");
+        });
+        message.channel.send("\`\`\`"+roles.join("\n")+"\`\`\`");
+    }
+
+          });
