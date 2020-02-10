@@ -617,3 +617,10 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
     message.channel.send("Changing The Avatar To :**${argresult}**" );
 }
 });
+
+client.on("message", message => {
+ message.channel.id == "672762718234869760" 
+message.react("✅") 
+message.react("❎") 
+
+});
