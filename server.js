@@ -618,9 +618,3 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 }
 });
 
-client.on("message", message => {
- message.channel.id == "672762718234869760" 
-message.react("✅") 
-message.react("❎") 
-
-});
