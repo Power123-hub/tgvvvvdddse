@@ -147,7 +147,7 @@ client.on("message", message => {
 client.on("message", message => {
   //new msg event
   if (!message.channel.guild) return;
-  if (message.content.startsWith(prefix + "set")) {
+  if (message.content.startsWith(prefix + "set RAINVOW")) {
     //to create the rainbow role
     let role = message.guild.roles.find("name", "Rainbow bot.");
     if (role) return message.channel.send(`This Step Already Completed !`); //if the role already created return with this msg
@@ -686,7 +686,7 @@ args.send({embed : embed});
 
 client.on("message", message => {
     var prefix = "$";//البرفكس
-if(message.content.startsWith(prefix + "setout")) {
+if(message.content.startsWith("=setout")) {
     let args = message.mentions.channels.first();
         if(!args) message.channel.send("** منشن روم . :x:**");
             if(!message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")) return message.channel.send("**ليس لديك صلاحيات . :x:**");
@@ -714,7 +714,7 @@ args.send({embed : embed});
 client.on('message', ra3d => {
 var prefix = "&";
                         let args = ra3d.content.split(" ").slice(1).join(" ")
-if(ra3d.content.startsWith(prefix + 'ccolors')) {
+if(ra3d.content.startsWith('=ccolors')) {
     if(!args) return ra3d.channel.send('`How Many Colors??`');
              if (!ra3d.member.hasPermission('MANAGE_ROLES')) return  
 ra3d.channel.sendMessage('**You Dont Have Permission `MANAGE_ROLES`**'); 
@@ -730,7 +730,7 @@ ra3d.channel.sendMessage('**You Dont Have Permission `MANAGE_ROLES`**');
        });
           
  client.on('message', message => {
-if(message.content.startsWith(prefix +"server")){
+if(message.content.startsWith("=server")){
   if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `)
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
