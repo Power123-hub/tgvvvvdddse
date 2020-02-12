@@ -618,3 +618,25 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 }
 });
 
+client.on("message", async message => {
+  let args = message.content.split(" ");
+      const ms = new Date().getTime() - message.member.joinedAt.getTime();
+  var seconds = parseInt((ms/1000)%60)
+    , minutes = parseInt((ms/(1000*60))%60)
+    , hours = parseInt((ms/(1000*60*60))%24);
+  const now = new Date(); 
+  const joinedAt = ms / 1000 / 60 / 60 / 24; 
+  if (args[0] === "=time") {
+    let embed = new Discord.RichEmbed()
+    .setTitle(message.author.username)
+    .addField("> Since:", `
+⏲️ ${joinedAt.toFixed(0)} days ,
+ ${hours} Hours ,
+ ${minutes} Minutes ,
+ ${seconds} seconds ⏲️`)
+    .setTimestamp()
+    .setThumbnail(message.author.avatarURL);
+message.channel.send(embed)
+  }
+});
+
