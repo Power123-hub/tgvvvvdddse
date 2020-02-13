@@ -593,6 +593,7 @@ client.on("message", message => {
 **=uptime •**
 **=8ball •**
 **=setwlc•**
+**=time•**
 **=setout•**
 `);
   }
