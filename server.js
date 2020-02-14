@@ -643,74 +643,6 @@ message.channel.send(embed)
   }
 });
 
-client.on ("message",msg=>{
-var array = msg.content.split (" ")
-var room = msg.mentions.channels.first () 
-var args = array.slice (2).join (" ")
-var cmd = array [0]
-if (cmd === `=say`) {
-if (!msg.member.hasPermission ("ADMINISTRATOR")) return;
-if (!room) return msg.reply("please Provid a room ");
-msg.delete ()
-room.send (args)}
-})
-
-client.on("message", message => {
-    var prefix = "$";// البرفكس
-if(message.content.startsWith(prefix + "setwlc")) {
-    let args = message.mentions.channels.first();
-        if(!args) message.channel.send("** منشن روم . :x:**").then(m => {    
-m.delete(1500);
-})
-            if(!message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")) return message.channel.send("**ليس لديك صلاحيات . :x:**");
-                    message.channel.send(`**${args}. لقد تم شغل الروم هذا للترحيب.**`);
-                client.on("guildMemberAdd", (member) => {
-                        if(member.user.bot) return;
-                     var embed = new Discord.RichEmbed()
-.setAuthor(member.user.username, member.user.avatarURL)
-.setThumbnail(member.user.avatarURL)
-.setTitle('New Member')
-.setDescription(`Welcome To Server : [ ${message.guild.name} ]`)
-.addField("**اسم العضو** :", `${message.author.username}#${message.author.discriminator}`, true)
-.addField('**ايدي العضو** :',"" +  member.user.id, true)
-.addField('**تاج العضو** :', member.user.discriminator, true)
-.addField('**صنع الحساب منذ** :',member.user.createdAt, true)
-.addField('**انت العضو رقم**',`**[ ${member.guild.memberCount} ]**`,true)
-.setColor('GREEN')
-.setFooter(member.guild.name, member.guild.iconURL, true)
-                     
-args.send({embed : embed});
-                });
-}
-});
-
-
-client.on("message", message => {
-    var prefix = "$";//البرفكس
-if(message.content.startsWith("=setout")) {
-    let args = message.mentions.channels.first();
-        if(!args) message.channel.send("** منشن روم . :x:**");
-            if(!message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")) return message.channel.send("**ليس لديك صلاحيات . :x:**");
-                    message.channel.send(`**${args}. لقد تم شغل الروم هذا للترحيب.**`);
-                client.on("guildMemberRemove", (member) => {
-                        if(member.user.bot) return;
-                     var embed = new Discord.RichEmbed()
-.setAuthor(member.user.username, member.user.avatarURL)
-.setThumbnail(member.user.avatarURL)
-.setTitle('Out Member')
-.setDescription(`GoodBye From Server : [ ${message.guild.name} ]`)
-.addField("**اسم العضو** :", `${message.author.username}#${message.author.discriminator}`, true)
-.addField('**ايدي العضو** :',"" +  member.user.id, true)
-.addField('**تاج العضو** :', member.user.discriminator, true)
-.addField('**صنع الحساب منذ** :',member.user.createdAt, true)
-.addField('**انت العضو رقم**',`**[ ${member.guild.memberCount} ]**`,true)
-.setColor('RED')
-.setFooter(member.guild.name, member.guild.iconURL, true)
-                     
-args.send({embed : embed});
-                });
-}
-});
 
 client.on('message', ra3d => {
 var prefix = "&";
@@ -754,3 +686,61 @@ message.channel.sendEmbed(embed)
 
 }
 });
+
+
+
+
+
+client.on('message', message => {
+  if (!message.guild) return;
+  if (message.content === prefix + 'join') {
+    if (message.member.voiceChannel) {
+      message.member.voiceChannel.join()
+        .then(connection => { 
+          message.reply('**ابشر انا معاك ف الروم الان ..**!');
+        })
+        .catch(console.log);
+    } else {
+      message.reply('**- لازم تخش روم صوتي!**');
+    }
+  }
+});
+
+
+
+
+
+
+client.on('message', message => {
+
+
+
+    let argresult = message.content.split(` `).slice(1).join(' ');
+    if (message.content.startsWith(prefix + 'setStreaming')) {
+      message.delete();
+      client.user.setGame(argresult, 'https://twitch.tv/REVA');
+
+    } else if(message.content.startsWith(prefix + 'setWatching')) {
+        client.user.setActivity(argresult,{type: 'WATCHING'});
+
+      } else if(message.content.startsWith(prefix + 'setListening')) {
+        client.user.setActivity(argresult,{type: 'LISTENING'});
+
+      } else if(message.content.startsWith(prefix + 'setPlaying')) {
+        client.user.setActivity(argresult,{type: 'PLAYING'});
+
+      } else if(message.content.startsWith(prefix + 'setName')) {
+        client.user.setUsername(argresult);
+
+      } else if(message.content.startsWith(prefix + 'setAvatar')) {
+        client.user.setAvatar(argresult);
+
+
+      } else if(message.content.startsWith(prefix + 'setStatus')) {
+        if(!argresult) return message.channel.send('`online`, `DND(Do not Distrub),` `idle`, `invisible(Offline)` :notes: أختر أحد الحالات');
+		client.user.setStatus(argresult);
+
+
+    }
+
+  });
