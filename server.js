@@ -496,14 +496,7 @@ client.on("message", message => {
   }
 });
 
-client.on("message", message => {
-  if (message.content.startsWith("=say")) {
-    let args = message.content.split(" ").slice(1);
-    let ar = args.join(" ");
 
-    message.channel.send(ar, { tts: true });
-  }
-});
 
 client.on("ready", () => {
   client.channels.get("611709535668797460").join();
@@ -697,11 +690,11 @@ client.on('message', message => {
     if (message.member.voiceChannel) {
       message.member.voiceChannel.join()
         .then(connection => { 
-          message.reply('**ابشر انا معاك ف الروم الان ..**!');
+          message.reply('** NOW I WILL BE WITH YOU ..**!');
         })
         .catch(console.log);
     } else {
-      message.reply('**- لازم تخش روم صوتي!**');
+      message.reply('**I CAN`T FINE THIS ROOM !**');
     }
   }
 });
