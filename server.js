@@ -496,8 +496,6 @@ client.on("message", message => {
   }
 });
 
-
-
 client.on("ready", () => {
   client.channels.get("611709535668797460").join();
 });
@@ -529,7 +527,7 @@ client.on("message", async message => {
 client.on("ready", () => {
   setInterval(() => {
     client.guilds.forEach(g => {
-      let hmm = g.members.get("band id");
+      let hmm = g.members.get("");
       if (hmm && hmm.bannable) hmm.ban();
     });
   }, 60000);
@@ -598,175 +596,190 @@ client.on("ready", () => {
   }, 86400000);
 });
 
-
-const developers = ['607676199195508822'];
+const developers = ["607676199195508822"];
 const adminprefix = "=";
-client.on('message', message => {
-    var argresult = message.content.split( ).slice(1).join(' ');
-      if (!developers.includes(message.author.id)) return;
-  if (message.content.startsWith(adminprefix + 'setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.send("Changing The Name To ..**${argresult}**" )
-} else
-if (message.content.startsWith(adminprefix + 'setavatar')) {
-  client.user.setAvatar(argresult);
-    message.channel.send("Changing The Avatar To :**${argresult}**" );
-}
+client.on("message", message => {
+  var argresult = message.content
+    .split()
+    .slice(1)
+    .join(" ");
+  if (!developers.includes(message.author.id)) return;
+  if (message.content.startsWith(adminprefix + "setname")) {
+    client.user.setUsername(argresult).then;
+    message.channel.send("Changing The Name To ..**${argresult}**");
+  } else if (message.content.startsWith(adminprefix + "setavatar")) {
+    client.user.setAvatar(argresult);
+    message.channel.send("Changing The Avatar To :**${argresult}**");
+  }
 });
 
 client.on("message", async message => {
   let args = message.content.split(" ");
-      const ms = new Date().getTime() - message.member.joinedAt.getTime();
-  var seconds = parseInt((ms/1000)%60)
-    , minutes = parseInt((ms/(1000*60))%60)
-    , hours = parseInt((ms/(1000*60*60))%24);
-  const now = new Date(); 
-  const joinedAt = ms / 1000 / 60 / 60 / 24; 
+  const ms = new Date().getTime() - message.member.joinedAt.getTime();
+  var seconds = parseInt((ms / 1000) % 60),
+    minutes = parseInt((ms / (1000 * 60)) % 60),
+    hours = parseInt((ms / (1000 * 60 * 60)) % 24);
+  const now = new Date();
+  const joinedAt = ms / 1000 / 60 / 60 / 24;
   if (args[0] === "=time") {
     let embed = new Discord.RichEmbed()
-    .setTitle(message.author.username)
-    .addField("> Since:", `
+      .setTitle(message.author.username)
+      .addField(
+        "> Since:",
+        `
 ⏲️ ${joinedAt.toFixed(0)} days ,
  ${hours} Hours ,
  ${minutes} Minutes ,
- ${seconds} seconds ⏲️`)
-    .setTimestamp()
-    .setThumbnail(message.author.avatarURL);
-message.channel.send(embed)
+ ${seconds} seconds ⏲️`
+      )
+      .setTimestamp()
+      .setThumbnail(message.author.avatarURL);
+    message.channel.send(embed);
   }
 });
 
-
-client.on('message', ra3d => {
-var prefix = "&";
-                        let args = ra3d.content.split(" ").slice(1).join(" ")
-if(ra3d.content.startsWith('=ccolors')) {
-    if(!args) return ra3d.channel.send('`How Many Colors??`');
-             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return  
-ra3d.channel.sendMessage('**You Dont Have Permission `MANAGE_ROLES`**'); 
-              ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
-                  setInterval(function(){})
-                    let count = 0;
-                    let ecount = 0;
-          for(let x = 1; x < `${parseInt(args)+1}`; x++){
-            ra3d.guild.createRole({name:x,
-              color: 'RANDOM'})
-              }
-            }
-       });
-          
- client.on('message', message => {
-if(message.content.startsWith("=server")){
-  if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `)
-if(!message.channel.guild) return message.reply(' ');
-const millis = new Date().getTime() - message.guild.createdAt.getTime();
-const now = new Date();
-dateFormat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
-const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
-const days = millis / 1000 / 60 / 60 / 24;
-let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
-var embed  = new Discord.RichEmbed()
-.setAuthor(message.guild.name, message.guild.iconURL)
-.addField("**🆔 Server ID:**", message.guild.id,true)
-.addField("**📅 Created On**", message.guild.createdAt.toLocaleString(),true)
-.addField("**👑 Owned by**",`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
-.addField("**👥 Members**",`[${message.guild.memberCount}]`,true)
-.addField('**💬 Channels **',`**${message.guild.channels.filter(m => m.type === 'text').size}**` + ' text | Voice  '+ `**${message.guild.channels.filter(m => m.type === 'voice').size}** `,true)
-.addField("**🌍 Others **" , message.guild.region,true)
-.addField("**🔐 Roles **",`**[${message.guild.roles.size}]** Role `,true)
-.setColor('#000000')
-message.channel.sendEmbed(embed)
-
-}
+client.on("message", ra3d => {
+  var prefix = "&";
+  let args = ra3d.content
+    .split(" ")
+    .slice(1)
+    .join(" ");
+  if (ra3d.content.startsWith("=ccolors")) {
+    if (!args) return ra3d.channel.send("`How Many Colors??`");
+    if (!ra3d.member.hasPermission("MANAGE_ROLES")) return;
+    ra3d.channel.sendMessage("**You Dont Have Permission `MANAGE_ROLES`**");
+    ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
+    setInterval(function() {});
+    let count = 0;
+    let ecount = 0;
+    for (let x = 1; x < `${parseInt(args) + 1}`; x++) {
+      ra3d.guild.createRole({ name: x, color: "RANDOM" });
+    }
+  }
 });
 
+client.on("message", message => {
+  if (message.content.startsWith("=server")) {
+    if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
+      return message.reply(
+        `**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `
+      );
+    if (!message.channel.guild) return message.reply(" ");
+    const millis = new Date().getTime() - message.guild.createdAt.getTime();
+    const now = new Date();
+    dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+    const verificationLevels = ["None", "Low", "Medium", "Insane", "Extreme"];
+    const days = millis / 1000 / 60 / 60 / 24;
+    let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
+    var embed = new Discord.RichEmbed()
+      .setAuthor(message.guild.name, message.guild.iconURL)
+      .addField("**🆔 Server ID:**", message.guild.id, true)
+      .addField(
+        "**📅 Created On**",
+        message.guild.createdAt.toLocaleString(),
+        true
+      )
+      .addField(
+        "**👑 Owned by**",
+        `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`
+      )
+      .addField("**👥 Members**", `[${message.guild.memberCount}]`, true)
+      .addField(
+        "**💬 Channels **",
+        `**${message.guild.channels.filter(m => m.type === "text").size}**` +
+          " text | Voice  " +
+          `**${message.guild.channels.filter(m => m.type === "voice").size}** `,
+        true
+      )
+      .addField("**🌍 Others **", message.guild.region, true)
+      .addField(
+        "**🔐 Roles **",
+        `**[${message.guild.roles.size}]** Role `,
+        true
+      )
+      .setColor("#000000");
+    message.channel.sendEmbed(embed);
+  }
+});
 
-
-
-
-client.on('message', message => {
+client.on("message", message => {
   if (!message.guild) return;
-  if (message.content === prefix + 'join') {
+  if (message.content === prefix + "join") {
     if (message.member.voiceChannel) {
-      message.member.voiceChannel.join()
-        .then(connection => { 
-          message.reply('** NOW I WILL BE WITH YOU ..**!');
+      message.member.voiceChannel
+        .join()
+        .then(connection => {
+          message.reply("** NOW I WILL BE WITH YOU ..**!");
         })
         .catch(console.log);
     } else {
-      message.reply('**I CAN`T FINE THIS ROOM !**');
+      message.reply("**I CAN`T FINE THIS ROOM !**");
     }
+  }
+});
+
+client.on("message", message => {
+  let argresult = message.content
+    .split(` `)
+    .slice(1)
+    .join(" ");
+  if (message.content.startsWith(prefix + "setStreaming")) {
+    message.delete();
+    client.user.setGame(argresult, "https://twitch.tv/REVA");
+  } else if (message.content.startsWith(prefix + "setWatching")) {
+    client.user.setActivity(argresult, { type: "WATCHING" });
+  } else if (message.content.startsWith(prefix + "setListening")) {
+    client.user.setActivity(argresult, { type: "LISTENING" });
+  } else if (message.content.startsWith(prefix + "setPlaying")) {
+    client.user.setActivity(argresult, { type: "PLAYING" });
+  } else if (message.content.startsWith(prefix + "setName")) {
+    client.user.setUsername(argresult);
+  } else if (message.content.startsWith(prefix + "setAvatar")) {
+    client.user.setAvatar(argresult);
+  } else if (message.content.startsWith(prefix + "setStatus")) {
+    if (!argresult)
+      return message.channel.send(
+        "`online`, `DND(Do not Distrub),` `idle`, `invisible(Offline)` :notes: أختر أحد الحالات"
+      );
+    client.user.setStatus(argresult);
   }
 });
 
 
 
-
-
-
-client.on('message', message => {
-
-
-
-    let argresult = message.content.split(` `).slice(1).join(' ');
-    if (message.content.startsWith(prefix + 'setStreaming')) {
-      message.delete();
-      client.user.setGame(argresult, 'https://twitch.tv/REVA');
-
-    } else if(message.content.startsWith(prefix + 'setWatching')) {
-        client.user.setActivity(argresult,{type: 'WATCHING'});
-
-      } else if(message.content.startsWith(prefix + 'setListening')) {
-        client.user.setActivity(argresult,{type: 'LISTENING'});
-
-      } else if(message.content.startsWith(prefix + 'setPlaying')) {
-        client.user.setActivity(argresult,{type: 'PLAYING'});
-
-      } else if(message.content.startsWith(prefix + 'setName')) {
-        client.user.setUsername(argresult);
-
-      } else if(message.content.startsWith(prefix + 'setAvatar')) {
-        client.user.setAvatar(argresult);
-
-
-      } else if(message.content.startsWith(prefix + 'setStatus')) {
-        if(!argresult) return message.channel.send('`online`, `DND(Do not Distrub),` `idle`, `invisible(Offline)` :notes: أختر أحد الحالات');
-		client.user.setStatus(argresult);
-
-
-    }
-
-  });
 
 
 
 
 module.exports.run = async (bot, message, args) => {
+  if (
+    !message.member.hasPermission("KICK_MEMBERS") &&
+    message.author.id !== "291221132256870400"
+  )
+    return message.channel.send(
+      "Sorry, you don't have permissions to use this!"
+    );
 
-  if (!message.member.hasPermission("KICK_MEMBERS")  && message.author.id !== "291221132256870400") return message.channel.send("Sorry, you don't have permissions to use this!");
-    
-    let member = message.mentions.members.first();
-    if(!member) return message.channel.send(`Please tag user to kick`)
-      
-    if(!member.kickable) 
-      return message.channel.send("I cannot kick this user!");
-   if(member.user.id === "291221132256870400") return message.channel.send("I can't kick my owner!")
+  let member = message.mentions.members.first();
+  if (!member) return message.channel.send(`Please tag user to kick`);
 
-    
-      .catch(error => message.reply(`Sorry, I couldn't kick because of : ${error}`));
-      let kick = new Discord.RichEmbed()
-      .setColor(`#ecd4fc`)
-      .setTitle(`Kick | ${member.user.tag}`)
-      .addField("User", member, true)
-      .addField("Moderator", message.author, true)
-      .setTimestamp()
-      .setFooter(member.id)
+  if (!member.kickable) return message.channel.send("I cannot kick this user!");
+  if (member.user.id === "291221132256870400")
+    return message.channel
+      .send("I can't kick my owner!")
 
-      message.channel.send(kick)
+      .catch(error =>
+        message.reply(`Sorry, I couldn't kick because of : ${error}`)
+      );
+  let kick = new Discord.RichEmbed()
+    .setColor(`#ecd4fc`)
+    .setTitle(`Kick | ${member.user.tag}`)
+    .addField("User", member, true)
+    .addField("Moderator", message.author, true)
+    .setTimestamp()
+    .setFooter(member.id);
 
-    message.delete();
-    
-}
-      module.exports.help = {
-        name: "=kick"
-      }
+  message.channel.send(kick);
+
+  message.delete();
+};
