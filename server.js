@@ -75,10 +75,10 @@ client.on("guildMemberAdd", member => {
     .addField("**Thank You For Joining**", member.user.username) //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
     .setColor("#0984e3") //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
     .setImage(
-      "https://cdn.discordapp.com/attachments/607046676984758383/650554313818767361/p_1225y7yza1.gif"
+      "https://cdn.discordapp.com/attachments/617323833388564494/679319488671383580/1573566988291.jpg"
     ); //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
   //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
-  var channel = member.guild.channels.find("name", "greetings"); //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
+  var channel = member.guild.channels.find("name", "sd"); //Háwáii ~ ! .₳Ⱨ₥ɆĐ ♡#5044  ,  ! ,Haru#6204
   if (!channel) return; //! .𝒜ℋℳℰ𝒟 ♪ ♥#6950  ,  ! ,Haru#6204
   channel.send({ embed: embed }); //! .𝒜ℋℳℰ𝒟 ♪ ♥#6950  ,  ! ,Haru#6204
 }); //! .𝒜ℋℳℰ𝒟 ♪ ♥#6950  ,  ! ,Haru#6204
@@ -104,8 +104,7 @@ client.on("guildMemberAdd", member => {
   if (!channel) return;
   // Send the message, mentioning the member
   channel.send(`${member},
-بەخێر بێیت بۆ سێرفەری پڕۆ پلەیەر
-welcome to pro player server💖💖`);
+<a:emoji_30:609618417435279360> <a:emoji_35:609618743814914098> <a:emoji_34:609618724156342292> <a:emoji_31:609618659853336576> <a:emoji_32:609618683542765598> <a:emoji_33:609618706137481225> <a:emoji_35:609618743814914098>`);
 });
 
 // Create an event listener for new guild members
@@ -745,12 +744,6 @@ client.on("message", message => {
   }
 });
 
-
-
-
-
-
-
 module.exports.run = async (bot, message, args) => {
   if (
     !message.member.hasPermission("KICK_MEMBERS") &&
@@ -784,171 +777,156 @@ module.exports.run = async (bot, message, args) => {
   message.delete();
 };
 
-
-
-
-
-
-
-
-
-
-
 //CopyRights ToxicCodes 04/28/2019 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
 
-client.on("message", message =>{
+client.on("message", message => {
+  let command = message.content.split(" ")[0].slice(prefix.length);
 
-  let command = message.content.split(" ")[0].slice(prefix.length);
+  let args = message.content.split(" ").slice(1);
 
-  let args = message.content.split(" ").slice(1);
+  if (!message.content.startsWith(prefix)) return;
 
-  if(!message.content.startsWith(prefix)) return;
+  if (message.author.bot) return;
 
-  if(message.author.bot) return;
+  if (command === "1welcome") {
+    let welcomechann = args.join(" ");
 
-  if(command === "welcome") {
+    if (!message.member.hasPermission("ADMINISTRATOR"))
+      return message.reply("You must have the **`ADMINISTRATOR`** permission!");
 
-      let welcomechann = args.join(" ");
+    if (!message.guild.me.hasPermission("ADMINISTRATOR"))
+      return message.reply("I must have the **`ADMINISTRATOR`** permissions!");
 
-      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You must have the **`ADMINISTRATOR`** permission!")
+    if (!message.member.guild.channels.find(x => x.name === welcomechann))
+      return message.reply("Usage: **`(channel name)`**");
 
-      if(!message.guild.me.hasPermission("ADMINISTRATOR")) return message.reply("I must have the **`ADMINISTRATOR`** permissions!")
+    message.reply("Successfully applied welcome to **`" + welcomechann + "`**");
 
-      if(!message.member.guild.channels.find(x => x.name === welcomechann)) return message.reply("Usage: **`(channel name)`**");
+    WelcomeChannel[message.guild.id] = {
+      guild: message.guild.name,
 
-      message.reply("Successfully applied welcome to **`" + welcomechann + "`**")
+      channel: welcomechann
+    };
 
-      WelcomeChannel[message.guild.id] = {
-
-          guild: message.guild.name,
-
-          channel: welcomechann
-
-      }
-
-      fs.writeFile("./welcomer.json", JSON.stringify(WelcomeChannel, null, 4), err => {
-
-          if(err) throw err;
-
-  });
-
-}
-
+    fs.writeFile(
+      "./welcomer.json",
+      JSON.stringify(WelcomeChannel, null, 4),
+      err => {
+        if (err) throw err;
+      }
+    );
+  }
 });
 
-client.on('guildMemberAdd', async function (Monster) {
+client.on("guildMemberAdd", async function(Monster) {
+  const WelcomeChannelMK = Monster.guild.channels.find(
+    mk => mk.name === WelcomeChannel[Monster.guild.id].channel
+  );
 
-  const WelcomeChannelMK =  Monster.guild.channels.find(mk => mk.name === WelcomeChannel[Monster.guild.id].channel);
+  if (!WelcomeChannelMK) return;
 
-  if(!WelcomeChannelMK) return;
+  Monster.guild.fetchInvites().then(guildInvites => {
+    const uses = guildInvites.find(codes => codes.uses);
 
-  Monster.guild.fetchInvites().then(guildInvites => {
+    const UserInvited = client.users.get(uses.inviter.id);
 
-      const uses = guildInvites.find(codes => codes.uses);
+    let itsMe = client.emojis.find(copy => copy.name === "diamondmk");
 
-      const UserInvited = client.users.get(uses.inviter.id);
+    var EmbedWelcome = new Discord.RichEmbed()
 
-            let itsMe = client.emojis.find(copy => copy.name === "diamondmk");
-
-            var EmbedWelcome = new Discord.RichEmbed()
-
-            .setDescription(`${itsMe} __**New Member Joined**__
+      .setDescription(
+        `${itsMe} __**New Member Joined**__
 
             ➤ Welcome <@${Monster.user.id}> To **${Monster.guild.name}**
 
             ➤ You Are Nr: **${Monster.guild.memberCount}**
 
-            ➤ Invited By: <@${UserInvited.id}>`)
+            ➤ Invited By: <@${UserInvited.id}>`
+      )
 
-            .setColor('#383c41');
+      .setColor("#383c41");
 
-  const MKPIC = ['./imgs/w1.png'];
+    const MKPIC = ["./imgs/w1.png"];
 
-  let Image = Canvas.Image,
+    let Image = Canvas.Image,
+      CodesMK = new Canvas(400, 200),
+      ctx = CodesMK.getContext("2d");
 
-     CodesMK = new Canvas(400, 200),
+    fs.readFile(MKPIC, function(err, Background) {
+      if (err) return console.log(err);
 
-     ctx = CodesMK.getContext('2d');
+      let BG = Canvas.Image;
 
- fs.readFile(MKPIC, function (err, Background) {
+      let ground = new Image();
 
-     if (err) return console.log(err);
+      ground.src = Background;
 
-     let BG = Canvas.Image;
+      ctx.drawImage(ground, 0, 0, 400, 200);
 
-     let ground = new Image;
+      let url = Monster.user.displayAvatarURL.endsWith(".webp")
+        ? Monster.user.displayAvatarURL.slice(100) + ".png"
+        : Monster.user.displayAvatarURL;
 
-     ground.src = Background;
+      jimp.read(url, (err, ava) => {
+        if (err) return console.log(err);
 
-     ctx.drawImage(ground, 0, 0, 400, 200);
+        ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+          if (err) return console.log(err);
 
-         let url = Monster.user.displayAvatarURL.endsWith(".webp") ? Monster.user.displayAvatarURL.slice(100) + ".png" : Monster.user.displayAvatarURL;
+          ctx.font = "bold 16px Arial";
 
-         jimp.read(url, (err, ava) => {
+          ctx.fontSize = "20px";
 
-             if (err) return console.log(err);
+          ctx.fillStyle = "#f1f1f1";
 
-             ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+          ctx.textAlign = "center";
 
-                 if (err) return console.log(err);
+          ctx.fillText(Monster.guild.name, 254, 67);
 
-                  ctx.font = "bold 16px Arial";
+          ctx.font = "bold 16px Arial";
 
-                  ctx.fontSize = '20px';
+          ctx.fontSize = "20px";
 
-                  ctx.fillStyle = "#f1f1f1";
+          ctx.fillStyle = "#f1f1f1";
 
-                  ctx.textAlign = "center";
+          ctx.textAlign = "center";
 
-                  ctx.fillText(Monster.guild.name, 254, 67);
+          ctx.fillText(Monster.guild.memberCount, 338, 161);
 
-                  ctx.font = "bold 16px Arial";
+          ctx.font = "bold 16px Arial";
 
-                  ctx.fontSize = '20px';
+          ctx.fontSize = "20px";
 
-                  ctx.fillStyle = "#f1f1f1";
+          ctx.fillStyle = "#f1f1f1";
 
-                  ctx.textAlign = "center";
+          ctx.textAlign = "center";
 
-                  ctx.fillText(Monster.guild.memberCount, 338, 161);
+          ctx.fillText(Monster.user.username, 77, 183);
 
-                  ctx.font = "bold 16px Arial";
+          let Avatar = Canvas.Image;
 
-                  ctx.fontSize = '20px';
+          let ava = new Avatar();
 
-                  ctx.fillStyle = "#f1f1f1";
+          ava.src = buf;
 
-                  ctx.textAlign = "center";
+          ctx.beginPath();
 
-                  ctx.fillText(Monster.user.username, 77, 183);
+          ctx.arc(77, 101, 62, 0, Math.PI * 2);
 
-                  let Avatar = Canvas.Image;
+          ctx.stroke();
 
-                  let ava = new Avatar;
+          ctx.clip();
 
-                  ava.src = buf;
+          ctx.drawImage(ava, 13, 38, 128, 126);
 
-                  ctx.beginPath();
-
-                  ctx.arc(77, 101, 62, 0, Math.PI*2);
-
-                  ctx.stroke();
-
-                  ctx.clip();
-
-                  ctx.drawImage(ava, 13, 38, 128, 126);
-
-          WelcomeChannelMK.send({embed: EmbedWelcome, file: CodesMK.toBuffer()});
-
-              })
-
-          })
-
-      });
-
-  })
-
-});//By 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
+          WelcomeChannelMK.send({
+            embed: EmbedWelcome,
+            file: CodesMK.toBuffer()
+          });
+        });
+      });
+    });
+  });
+}); //By 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
 
 //CopyRights ToxicCodes 04/28/2019 🌠☭ 🕅ØŇŞŦ€Ř ҜƗŇᎶ 👺❦❧#8722
-
