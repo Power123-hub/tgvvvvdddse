@@ -591,7 +591,7 @@ client.on("message", message => {
 
 client.on("ready", () => {
   setInterval(function() {
-    client.channels.get("685862154192420945").send("BZHI REVA");
+    client.channels.get("631897567004852249").send("BZHI REVA");
   }, 6000);
 });
 
