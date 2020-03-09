@@ -233,7 +233,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
-  if (message.content.toLowerCase() === prefix + "profile") {
+  if (message.content.toLowerCase() === "p") {
     message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
@@ -874,7 +874,8 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join("\n")}`
     if (!serverQueue) return msg.channel.send("لا يوجد شيء حالي ف العمل.");
     let index = 0;
     //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-    const embedqu = new Discord.RichEmbed().setDescription(`**Songs Queue** //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
+    const embedqu = new Discord.RichEmbed()
+      .setDescription(`**Songs Queue** //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
 ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
 **الان يتم تشغيل** ${serverQueue.songs[0].title}`);
     return msg.channel.sendEmbed(embedqu);
