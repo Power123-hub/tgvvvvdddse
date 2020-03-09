@@ -324,7 +324,7 @@ client.on("message", msg => {
 
 ////////// SIMPLE EMBED PING PONG //////////
 client.on("message", message => {
-  if (message.content === prefi"ping") {
+  if (message.content === prefix + "ping") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -339,7 +339,7 @@ client.on("message", message => {
 
 ////////// AVATAR EMBED CODE //////////
 client.on("message", message => {
-  if (message.content.startsWith("○avatar")) {
+  if (message.content.startsWith(prefix + "avatar")) {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -381,7 +381,7 @@ client.on("message", message => {
 
 ////////// SERVER INFO EMBED //////////
 client.on("message", message => {
-  if (message.content === "○server") {
+  if (message.content === prefix + "server") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -402,7 +402,7 @@ client.on("message", message => {
 
 ////////// SOCAIL EMBED//////////
 client.on("message", message => {
-  if (message.content === "○social") {
+  if (message.content === prefix + "social") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -421,11 +421,11 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (!message.channel.guild) return;
-  if (message.content.startsWith("○move")) {
+  if (message.content.startsWith(prefix + "move")) {
     if (message.member.hasPermission("MOVE_MEMBERS")) {
       if (message.mentions.users.size === 0) {
         return message.channel.send(
-          "``To Use Command write this : =move [USER]``"
+          "``To Use Command write this : " + {prefix} + "move [USER]``"
         );
       }
       if (message.member.voiceChannel != null) {
@@ -466,7 +466,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("○uptime")) {
+  if (message.content.startsWith(prefix + "uptime")) {
     let uptime = client.uptime;
     let days = 0;
     let hours = 0;
@@ -496,7 +496,7 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-  client.channels.get("683268122307723361").join();
+  client.channels.get("683268085087469628").join();
 });
 
 client.on("message", async message => {
@@ -533,7 +533,7 @@ client.on("ready", () => {
 });
 
 client.on("message", message => {
-  if (message.content.toLowerCase() === "cat") {
+  if (message.content.toLowerCase() === prefix +"cat") {
     var request = require("request");
 
     request("http://aws.random.cat/meow", function(error, response, body) {
@@ -561,7 +561,7 @@ client.on("message", msg => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content === "○help") {
+  if (message.content === prefix + "help") {
     message.react("✔");
 
     message.author.sendMessage(`***COMMAND BOT***  
@@ -591,12 +591,12 @@ client.on("message", message => {
 
 client.on("ready", () => {
   setInterval(function() {
-    client.channels.get("672762718234869760").send("logoy xotan dagrn");
-  }, 86400000);
+    client.channels.get("685862154192420945").send("BZHI REVA");
+  }, 6000);
 });
 
 const developers = ["345860680131411968"];
-const adminprefix = "○";
+const adminprefix = prefix;
 client.on("message", message => {
   var argresult = message.content
     .split()
@@ -643,7 +643,7 @@ client.on("message", ra3d => {
     .split(" ")
     .slice(1)
     .join(" ");
-  if (ra3d.content.startsWith("○ccolors")) {
+  if (ra3d.content.startsWith(prefix + "ccolors")) {
     if (!args) return ra3d.channel.send("`How Many Colors??`");
     if (!ra3d.member.hasPermission("MANAGE_ROLES")) return;
     ra3d.channel.sendMessage("**You Dont Have Permission `MANAGE_ROLES`**");
@@ -658,7 +658,7 @@ client.on("message", ra3d => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("server")) {
+  if (message.content.startsWith(prefix + "server")) {
     if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
       return message.reply(
         `**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `
@@ -789,7 +789,7 @@ client.on("message", message => {
   if (message.author.bot) return;
 
   if (command === "1welcome") {
-    let welcomechann = args.join(" ");
+    let welcomechannel = args.join(" ");
 
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.reply("You must have the **`ADMINISTRATOR`** permission!");
