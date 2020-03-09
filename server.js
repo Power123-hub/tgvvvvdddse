@@ -223,7 +223,7 @@ With BY-REVA
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("=sg")) {
+  if (message.content.startsWith("○sg")) {
     let text = message.content.split(" ").slice(1);
     const search = `https://lmgtfy.com/?q=${text}`.replace(" ");
     if (!search)
@@ -233,7 +233,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
-  if (message.content.toLowerCase() === "=p") {
+  if (message.content.toLowerCase() === "○profile") {
     message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
@@ -251,7 +251,7 @@ client.on("message", async message => {
 });
 
 client.on("message", function(message) {
-  if (message.content.startsWith("=report")) {
+  if (message.content.startsWith("○report")) {
     let messageArgs = message.content
       .split(" ")
       .slice(1)
@@ -316,7 +316,7 @@ client.on("message", msg => {
   var room = msg.mentions.channels.first();
   var args = array.slice(2).join(" ");
   var cmd = array[0];
-  if (cmd === `=say`) {
+  if (cmd === `○say`) {
     msg.delete();
     room.send(args);
   }
@@ -324,7 +324,7 @@ client.on("message", msg => {
 
 ////////// SIMPLE EMBED PING PONG //////////
 client.on("message", message => {
-  if (message.content === "=ping") {
+  if (message.content === "○ping") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -339,7 +339,7 @@ client.on("message", message => {
 
 ////////// AVATAR EMBED CODE //////////
 client.on("message", message => {
-  if (message.content.startsWith("=avatar")) {
+  if (message.content.startsWith("○avatar")) {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -365,7 +365,7 @@ client.on("message", message => {
 
 ////////// INVITE THE BOT EMBED //////////
 client.on("message", message => {
-  if (message.content === "+invite") {
+  if (message.content === "○~{invite") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -381,7 +381,7 @@ client.on("message", message => {
 
 ////////// SERVER INFO EMBED //////////
 client.on("message", message => {
-  if (message.content === "=server") {
+  if (message.content === "○server") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -402,7 +402,7 @@ client.on("message", message => {
 
 ////////// SOCAIL EMBED//////////
 client.on("message", message => {
-  if (message.content === "=social") {
+  if (message.content === "○social") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -421,7 +421,7 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (!message.channel.guild) return;
-  if (message.content.startsWith("=move")) {
+  if (message.content.startsWith("○move")) {
     if (message.member.hasPermission("MOVE_MEMBERS")) {
       if (message.mentions.users.size === 0) {
         return message.channel.send(
@@ -466,7 +466,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("=uptime")) {
+  if (message.content.startsWith("○uptime")) {
     let uptime = client.uptime;
     let days = 0;
     let hours = 0;
@@ -533,7 +533,7 @@ client.on("ready", () => {
 });
 
 client.on("message", message => {
-  if (message.content.toLowerCase() === "=cat") {
+  if (message.content.toLowerCase() === "○cat") {
     var request = require("request");
 
     request("http://aws.random.cat/meow", function(error, response, body) {
@@ -561,7 +561,7 @@ client.on("message", msg => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content === "=help") {
+  if (message.content === "○help") {
     message.react("✔");
 
     message.author.sendMessage(`***COMMAND BOT***  
@@ -595,8 +595,8 @@ client.on("ready", () => {
   }, 86400000);
 });
 
-const developers = ["607676199195508822"];
-const adminprefix = "=";
+const developers = ["345860680131411968"];
+const adminprefix = "○";
 client.on("message", message => {
   var argresult = message.content
     .split()
@@ -643,7 +643,7 @@ client.on("message", ra3d => {
     .split(" ")
     .slice(1)
     .join(" ");
-  if (ra3d.content.startsWith("=ccolors")) {
+  if (ra3d.content.startsWith("○ccolors")) {
     if (!args) return ra3d.channel.send("`How Many Colors??`");
     if (!ra3d.member.hasPermission("MANAGE_ROLES")) return;
     ra3d.channel.sendMessage("**You Dont Have Permission `MANAGE_ROLES`**");
@@ -658,7 +658,7 @@ client.on("message", ra3d => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("=server")) {
+  if (message.content.startsWith("○server")) {
     if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
       return message.reply(
         `**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `
