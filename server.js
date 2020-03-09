@@ -589,11 +589,11 @@ client.on("message", message => {
   }
 });
 
-client.on("ready", () => {
-  setInterval(function() {
-    client.channels.get("620324892398714910").send("BZHI REVA");
-  }, 6000);
-});
+//client.on("ready", () => {
+// setInterval(function() {
+//   client.channels.get("620324892398714910").send("BZHI REVA");
+//  }, 6000);
+//});
 
 const developers = ["345860680131411968"];
 const adminprefix = prefix;
@@ -609,31 +609,6 @@ client.on("message", message => {
   } else if (message.content.startsWith(adminprefix + "setavatar")) {
     client.user.setAvatar(argresult);
     message.channel.send("Changing The Avatar To :**${argresult}**");
-  }
-});
-
-client.on("message", async message => {
-  let args = message.content.split(" ");
-  const ms = new Date().getTime() - message.member.joinedAt.getTime();
-  var seconds = parseInt((ms / 1000) % 60),
-    minutes = parseInt((ms / (1000 * 60)) % 60),
-    hours = parseInt((ms / (1000 * 60 * 60)) % 24);
-  const now = new Date();
-  const joinedAt = ms / 1000 / 60 / 60 / 24;
-  if (args[0] === "=time") {
-    let embed = new Discord.RichEmbed()
-      .setTitle(message.author.username)
-      .addField(
-        "> Since:",
-        `
-⏲️ ${joinedAt.toFixed(0)} days ,
- ${hours} Hours ,
- ${minutes} Minutes ,
- ${seconds} seconds ⏲️`
-      )
-      .setTimestamp()
-      .setThumbnail(message.author.avatarURL);
-    message.channel.send(embed);
   }
 });
 
@@ -899,8 +874,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join("\n")}`
     if (!serverQueue) return msg.channel.send("لا يوجد شيء حالي ف العمل.");
     let index = 0;
     //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-    const embedqu = //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-    new Discord.RichEmbed().setDescription(`**Songs Queue**
+    const embedqu = new Discord.RichEmbed().setDescription(`**Songs Queue** //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
 ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
 **الان يتم تشغيل** ${serverQueue.songs[0].title}`);
     return msg.channel.sendEmbed(embedqu);
@@ -998,7 +972,8 @@ function play(guild, song) {
 client.on("message", message => {
   if (message.content === `${prefix}`) {
     const embed = new Discord.RichEmbed() //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-      .setColor("#000000").setDescription(` //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
+      .setColor("#000000")
+      .setDescription(` //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
 ${prefix}play ? لتشغيل أغنية برآبط أو بأسم
 ${prefix}skip ? لتجآوز الأغنية الحآلية
 ${prefix}pause ? إيقآف الأغنية مؤقتا
