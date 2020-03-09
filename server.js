@@ -425,7 +425,7 @@ client.on("message", message => {
     if (message.member.hasPermission("MOVE_MEMBERS")) {
       if (message.mentions.users.size === 0) {
         return message.channel.send(
-          "``To Use Command write this : " + {prefix} + "move [USER]``"
+          "``To Use Command write this : " + { prefix } + "move [USER]``"
         );
       }
       if (message.member.voiceChannel != null) {
@@ -533,7 +533,7 @@ client.on("ready", () => {
 });
 
 client.on("message", message => {
-  if (message.content.toLowerCase() === prefix +"cat") {
+  if (message.content.toLowerCase() === prefix + "cat") {
     var request = require("request");
 
     request("http://aws.random.cat/meow", function(error, response, body) {
