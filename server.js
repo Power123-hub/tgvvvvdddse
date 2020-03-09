@@ -595,5 +595,3 @@ client.on("message", message => {
 `);
   }
 });
-
- 
