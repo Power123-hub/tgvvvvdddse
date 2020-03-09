@@ -496,7 +496,7 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-  client.channels.get("683268085087469628").join();
+  client.channels.get("683267977378136091").join();
 });
 
 client.on("message", async message => {
