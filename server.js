@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://flash-rifle.glitch.me/`);
+  http.get(`http://pro-player-system.glitch.me/`);
 }, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -496,7 +496,7 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-  client.channels.get("611709535668797460").join();
+  client.channels.get("683268122307723361").join();
 });
 
 client.on("message", async message => {
