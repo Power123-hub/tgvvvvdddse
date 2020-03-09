@@ -233,7 +233,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
-  if (message.content.toLowerCase() === "p") {
+  if (message.content.toLowerCase() === "P") {
     message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
@@ -381,7 +381,7 @@ client.on("message", message => {
 
 ////////// SERVER INFO EMBED //////////
 client.on("message", message => {
-  if (message.content === prefix + "server") {
+  if (message.content === "#server") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
@@ -533,7 +533,7 @@ client.on("ready", () => {
 });
 
 client.on("message", message => {
-  if (message.content.toLowerCase() === prefix + "cat") {
+  if (message.content.toLowerCase() === "cat") {
     var request = require("request");
 
     request("http://aws.random.cat/meow", function(error, response, body) {
@@ -561,7 +561,7 @@ client.on("message", msg => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content === prefix + "help") {
+  if (message.content === "=help") {
     message.react("✔");
 
     message.author.sendMessage(`***COMMAND BOT***  
