@@ -533,7 +533,7 @@ client.on("ready", () => {
 });
 
 client.on("message", message => {
-  if (message.content.toLowerCase() === "○cat") {
+  if (message.content.toLowerCase() === "cat") {
     var request = require("request");
 
     request("http://aws.random.cat/meow", function(error, response, body) {
@@ -658,7 +658,7 @@ client.on("message", ra3d => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("○server")) {
+  if (message.content.startsWith("server")) {
     if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
       return message.reply(
         `**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `
