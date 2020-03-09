@@ -204,7 +204,7 @@ function random_playing(bot) {
     `BY-REVA`
   ]; // You cant set anything playing you want it!
   let random = status[Math.floor(Math.random() * status.length)];
-  client.user.setActivity(random, { type: "WATCHING" });
+  client.user.setActivity(random, { type: "Streaming" });
 } //ngk ada error kan?tapi kok ngk muncul//btr//thx
 
 client.on("ready", () => {
@@ -223,7 +223,7 @@ With BY-REVA
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("○sg")) {
+  if (message.content.startsWith(prefix + "sg")) {
     let text = message.content.split(" ").slice(1);
     const search = `https://lmgtfy.com/?q=${text}`.replace(" ");
     if (!search)
@@ -233,7 +233,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
-  if (message.content.toLowerCase() === "○profile") {
+  if (message.content.toLowerCase() === prefix + "profile") {
     message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
@@ -251,7 +251,7 @@ client.on("message", async message => {
 });
 
 client.on("message", function(message) {
-  if (message.content.startsWith("○report")) {
+  if (message.content.startsWith(prefix + "report")) {
     let messageArgs = message.content
       .split(" ")
       .slice(1)
@@ -316,7 +316,7 @@ client.on("message", msg => {
   var room = msg.mentions.channels.first();
   var args = array.slice(2).join(" ");
   var cmd = array[0];
-  if (cmd === `○say`) {
+  if (cmd === prefix + `say`) {
     msg.delete();
     room.send(args);
   }
@@ -324,7 +324,7 @@ client.on("message", msg => {
 
 ////////// SIMPLE EMBED PING PONG //////////
 client.on("message", message => {
-  if (message.content === "○ping") {
+  if (message.content === prefi"ping") {
     if (!message.channel.guild)
       return message.reply(
         "**Please Do not type bot commands in bot private chat**"
