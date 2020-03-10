@@ -179,7 +179,7 @@ client.on("ready", () => {
 //كود برودكاست
 
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "bc")) {
+  if (message.content.startsWith(prefix + "b-c")) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(" ");
