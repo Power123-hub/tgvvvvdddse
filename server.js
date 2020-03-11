@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://flash-rifle.glitch.me/`);
+  http.get(`http://pro-player-system.glitch.me/`);
 }, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -558,7 +558,7 @@ client.on("message", message => {
 });
 
 client.on("message", msg => {
-  if (msg.content === "@《PP》REVA") {
+  if (msg.content === "@var token = ["R","A"]") {
     msg.reply("CREDIT BNERA");
   }
 });
@@ -596,50 +596,26 @@ client.on("message", message => {
   }
 });
 
-
-
-
-client.on('message', message => {
-
-  if (true) {
-
-if (message.content === 'invite') {
-
-      message.author.send('  رابط بوتك  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
-
- 
-
-    }
-
-   }
-
-  });
-
- 
-
- 
-
-client.on('message', message => {
-
-     if (message.content === "invite") {
-
-     let embed = new Discord.RichEmbed()
-
-  .setAuthor(message.author.username)
-
-  .setColor("#9B59B6")
-
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-
-     
-
-     
-
-     
-
-  message.channel.sendEmbed(embed);
-
-    }
-
+client.on("message", message => {
+  if (true) {
+    if (message.content === "=invite") {
+      message.author
+        .send("  رابط بوتك  |  تفضل ربط البوت     ")
+        .catch(e => console.log(e.stack));
+    }
+  }
 });
 
+client.on("message", message => {
+  if (message.content === "=invite") {
+    let embed = new Discord.RichEmbed()
+
+      .setAuthor(message.author.username)
+
+      .setColor("#9B59B6")
+
+      .addField(" Done | تــــم", " |  تــــم ارســالك في الخــاص");
+
+    message.channel.sendEmbed(embed);
+  }
+});
