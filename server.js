@@ -601,7 +601,7 @@ client.on("message", message => {
 
 
 
-const Discord = require('di
+
 
 
 client.on("ready", async  => {
