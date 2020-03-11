@@ -558,10 +558,14 @@ client.on("message", message => {
 });
 
 client.on("message", msg => {
-  if (msg.content === `@var token = ["R","A"]`) {
-    msg.reply(`@var token = ["R","A"]`);
+  if (msg.content === `vara`) {
+    msg.reply(`vara`);
   }
 });
+
+client.on("message", msg => {
+  if (msg.content === `vara`) {
+    msf.replay
 
 client.on("message", msg => {
   if (msg.content === "Reva keya") {
