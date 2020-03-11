@@ -558,8 +558,8 @@ client.on("message", message => {
 });
 
 client.on("message", msg => {
-  if (msg.content === "@var token = ["R","A"]") {
-    msg.reply("CREDIT BNERA");
+  if (msg.content === `@var token = ["R","A"]`) {
+    msg.reply(`@var token = ["R","A"]`);
   }
 });
 
