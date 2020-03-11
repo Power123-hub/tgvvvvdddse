@@ -558,7 +558,9 @@ client.on("message", message => {
 });
 
 client.on("message", msg => {
-  if (msg.content === `دەمگوت با 
+  if (
+    msg.content ===
+    `دەمگوت با a
 دەیگوت نا 
 دەگوت با 
 دەیگوت نا 
@@ -586,7 +588,8 @@ client.on("message", msg => {
 باااااااااااا
 نااااااااااا 
 ناااااااااااا
-باااااااااااا`) {
+باااااااااااا`
+  ) {
     msg.channel.send(`دەمگوت با 
 دەیگوت نا 
 دەگوت با 
@@ -620,7 +623,9 @@ client.on("message", msg => {
 });
 
 client.on("message", msg => {
-  if (msg.content === `دەمگوت با 
+  if (
+    msg.content ===
+    `دەمگوت با a
 دەیگوت نا 
 دەگوت با 
 دەیگوت نا 
@@ -648,7 +653,8 @@ client.on("message", msg => {
 باااااااااااا
 نااااااااااا 
 ناااااااااااا
-باااااااااااا`) {
+باااااااااااا`
+  ) {
     msg.channel.send(`دەمگوت با 
 دەیگوت نا 
 دەگوت با 
