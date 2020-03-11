@@ -558,14 +558,16 @@ client.on("message", message => {
 });
 
 client.on("message", msg => {
-  if (msg.content === `vara`) {
-    msg.reply(`vara`);
+  if (msg.content === `var`) {
+    msg.channel.send(`vara`);
   }
 });
 
 client.on("message", msg => {
-  if (msg.content === `vara`) {
-    msf.replay
+  if (msg.content === `var`) {
+    msg.channel.send(`vara`);
+  }
+});
 
 client.on("message", msg => {
   if (msg.content === "Reva keya") {
