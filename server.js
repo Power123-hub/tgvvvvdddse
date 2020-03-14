@@ -625,7 +625,7 @@ client.on("message", msg => {
 client.on("message", msg => {
   if (
     msg.content ===
-    `دەمگوت با a
+    `دەمگوت با 
 دەیگوت نا 
 دەگوت با 
 دەیگوت نا 
