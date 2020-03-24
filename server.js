@@ -45,6 +45,15 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on("guildmemberAdd", member => {
+  var reva = new Discord.RichEmbed().addFiled(
+    `${client.user.name} invite krawa la layan ${client.guild.size} , (total invites(${client.user.size}))`
+  );
+  var channel = member.guild.channels.find("name", "general");
+  if (!channel) return;
+  channel.send({ embed: reva });
+});
+
 client.on("message", message => {
   if (message.author.bot) return;
 
