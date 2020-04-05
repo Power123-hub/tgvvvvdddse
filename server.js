@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://pro-player-system.glitch.me/`);
+  http.get(`http://agr-1.glitch.me/`);
 }, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -43,15 +43,6 @@ var table = require("table").table;
 const Discord = require("discord.js");
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on("guildmemberAdd", member => {
-  var reva = new Discord.RichEmbed().addFiled(
-    `${client.user.name} invite krawa la layan ${client.guild.size} , (total invites(${client.user.size}))`
-  );
-  var channel = member.guild.channels.find("name", "general");
-  if (!channel) return;
-  channel.send({ embed: reva });
 });
 
 client.on("message", message => {
@@ -211,7 +202,7 @@ function random_playing(bot) {
     `${client.users.size} Users`,
     `${client.channels.size} Channels`,
     `${client.guilds.size} Server`,
-    `BY-REVA`
+    `AGRIN IS HERE`
   ]; // You cant set anything playing you want it!
   let random = status[Math.floor(Math.random() * status.length)];
   client.user.setActivity(random, { type: "WATCHING" });
@@ -224,7 +215,7 @@ client.on("ready", () => {
 With ${client.users.size} users
 With ${client.guilds.size} servers
 With ${client.channels.size} channels
-With BY-REVA
+With AGRIN IS HERE
 =============================================
 `;
 
@@ -515,7 +506,7 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-  client.channels.get("683268085087469628").join();
+  client.channels.get("687002886315573292").join();
 });
 
 client.on("message", async message => {
