@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://agr-2.glitch.me/`);
+  http.get(`http://pp-timer.glitch.me/`);
 }, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -46,9 +46,9 @@ client.on("ready", () => {
 });
 
 client.on("ready", async ready => {
-  var guild = client.guilds.get("693208211200671785");
-  var channel = guild.channels.get("697095453497622558");
-  var channel2 = guild.channels.get("697095498749706280");
+  var guild = client.guilds.get("589854962067046412");
+  var channel = guild.channels.get("697141276969009323");
+  var channel2 = guild.channels.get("697141321294413936");
   setInterval(() => {
     var currentTime = new Date(),
       hours = currentTime.getHours() + 3,
@@ -73,10 +73,3 @@ client.on("ready", async ready => {
     channel2.setName(" 📅 " + Dat + " : " + Month + " : " + Year);
   }, 5000);
 });
-
-var channel3 = guild.channels.get("657561534058332170");
-setInterval(() => {
-  channel3.setName(
-    `🔉 : ${client.guild.members.filter(m => m.voiceChannel).size} `
-  );
-}, 6000);
