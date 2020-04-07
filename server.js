@@ -77,4 +77,5 @@ client.on("ready", async ready => {
 });
 
 
-
+var channel3 = guild.channels.get("657561534058332170");
+channel3.setName();
