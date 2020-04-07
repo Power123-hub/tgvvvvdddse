@@ -68,12 +68,16 @@ client.on("ready", async ready => {
     if (hours == 0) {
       hours = 12;
     }
+  
     channel.setName(
-      "»  :- ${hours} : ${minutes} : ${Seconds} ${suffix}'"
+     " ⏰ " + hours + " : " + minutes + " : " + Seconds
     );
-    channel.setName(
-      hours + " : " + minutes + " : " 
-    );
-    channel2.setName('»  : ${Dat} - ${Month} - ${Year}');
+    channel2.setName(" 📅 " + Dat + " : " + Month + " : " + Year);
   }, 5000);
 });
+
+
+
+var channel3 = guild.channels.get("");
+voiceonn = ${channel.guild.members.filter(m => m.voiceCannel).size};
+channel3.setName('speaking_head 𝐕𝐨𝐢𝐜𝐞 𝐎𝐧𝐥𝐢𝐧𝐞 : ' + ${channel.guild.members.filter(m => m.voiceChannel).size});
