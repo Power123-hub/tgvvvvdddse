@@ -47,8 +47,8 @@ client.on("ready", () => {
 
 client.on("ready", async ready => {
   var guild = client.guilds.get("");
-  var channel = guild.channels.get("");
-  var channel2 = guild.channels.get("");  
+  var channel = guild.channels.get("697095453497622558");
+  var channel2 = guild.channels.get("697095498749706280");  
   setInterval(() => {
     var currentTime = new Date(),
       hours = currentTime.getHours() + 3,
@@ -68,11 +68,11 @@ client.on("ready", async ready => {
     if (hours == 0) {
       hours = 12;
     }
-    channel.setName(` alarm_clock :- ${hours} : ${minutes} : ${Seconds} ${suffix}`);
-    channel2.setName(`  date : ${Dat} - ${Month} - ${Year}`);
+    channel.setName(" alarm_clock :- "+ hours + ":" + minutes + ":" + Seconds + suffix);
+    channel2.setName("  date : " + Dat + "-" + Month + "-" + Year );
   }, 5000);
 });
 
 
-var channel = guild.channels.get("657561534058332170");
+var channel = guild.channels.get("");
 channel.setName(` speaking_head 𝐕𝐨𝐢𝐜𝐞 𝐎𝐧𝐥𝐢𝐧𝐞 :  ${channel.guild.members.filter(m => m.voiceChannel).size}`);
