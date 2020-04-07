@@ -78,6 +78,3 @@ client.on("ready", async ready => {
 
 
 
-var channel3 = guild.channels.get("");
-voiceonn = ${channel.guild.members.filter(m => m.voiceCannel).size};
-channel3.setName('speaking_head 𝐕𝐨𝐢𝐜𝐞 𝐎𝐧𝐥𝐢𝐧𝐞 : ' + ${channel.guild.members.filter(m => m.voiceChannel).size});
