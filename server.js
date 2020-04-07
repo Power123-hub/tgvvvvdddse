@@ -28,7 +28,6 @@ const gif = require("gif-search");
 const opus = require("node-opus");
 const ms = require("ms");
 const jimp = require("jimp");
-const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat"); //npm i dateformat
 const YouTube = require("simple-youtube-api");
@@ -46,7 +45,6 @@ client.on("ready", () => {
 });
 
 client.on("ready", async ready => {
-  var channel2 = guild.channels.get("697095498749706280");
   setInterval(() => {
     var currentTime = new Date(),
       hours = currentTime.getHours() + 3,
@@ -66,9 +64,11 @@ client.on("ready", async ready => {
     if (hours == 0) {
       hours = 12;
     }
-    guild.channels.get("").setName(
-      " time :-" + hours + ":" + minutes + ":" + Seconds + suffix
-    );
-    guild.channels.get ("").setName("  date : " + Dat + "-" + Month + "-" + Year);
+    guild.channels
+      .get("697095453497622558")
+      .setName(" time :-" + hours + ":" + minutes + ":" + Seconds + suffix);
+    guild.channels
+      .get("697095498749706280")
+      .setName("  date : " + Dat + "-" + Month + "-" + Year);
   }, 5000);
 });
