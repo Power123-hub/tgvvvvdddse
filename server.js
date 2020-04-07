@@ -68,14 +68,15 @@ client.on("ready", async ready => {
     if (hours == 0) {
       hours = 12;
     }
-  
-    channel.setName(
-     " ⏰ " + hours + " : " + minutes + " : " + Seconds
-    );
+
+    channel.setName(" ⏰ " + hours + " : " + minutes + " : " + Seconds);
     channel2.setName(" 📅 " + Dat + " : " + Month + " : " + Year);
   }, 5000);
 });
 
-
 var channel3 = guild.channels.get("657561534058332170");
-channel3.setName();
+setInterval(() => {
+  channel3.setName(
+    `🔉 : ${client.guild.members.filter(m => m.voiceChannel).size} `
+  );
+}, 6000);
