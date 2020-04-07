@@ -46,13 +46,11 @@ client.on("ready", () => {
 });
 
 client.on("ready", async ready => {
-  var guild = client.guilds.get("");
-  var channel = guild.channels.get("");
-  var channel2 = guild.channels.get("");  
+  var channel2 = guild.channels.get("697095498749706280");
   setInterval(() => {
     var currentTime = new Date(),
       hours = currentTime.getHours() + 3,
-      minutes = currentTime.getMinutes(), 
+      minutes = currentTime.getMinutes(),
       Seconds = currentTime.getSeconds(),
       Year = currentTime.getFullYear(),
       Month = currentTime.getMonth() + 1,
@@ -68,7 +66,9 @@ client.on("ready", async ready => {
     if (hours == 0) {
       hours = 12;
     }
-    channel.setName(" 🌐 :-" + ${hours} : ${minutes} : ${Seconds} ${suffix});
-    channel2.setName(»  date : ${Dat} - ${Month} - ${Year});
+    guild.channels.get("").setName(
+      " time :-" + hours + ":" + minutes + ":" + Seconds + suffix
+    );
+    guild.channels.get ("").setName("  date : " + Dat + "-" + Month + "-" + Year);
   }, 5000);
 });
