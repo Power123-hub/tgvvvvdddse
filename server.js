@@ -22,7 +22,7 @@ const fetchVideoInfo = require("youtube-info");
 const botversion = require("./package.json").version;
 const simpleytapi = require("simple-youtube-api");
 const moment = require("moment");
-const fst = require("fst");
+const fs = require("fs");
 const util = require("util");
 const gif = require("gif-search");
 const opus = require("node-opus");
@@ -101,18 +101,16 @@ client.on("message", message => {
   const args = message.content.slice(1).split(" ");
   const command = args.shift().toLowerCase();
   if (command === "=play") {
-    if (message.author.id === "345860680131411968") {
       if (message.member.voiceChannel) {
         message.member.voiceChannel
           .join()
           .then(connection => {
             console.log("connected");
-            connection.playStream(ytdl(args[0], { filter: "audioonly" }));
+            connection.playStream(ytdl('https://youtu.be/kXYiU_JCYtU', { filter: "audioonly" }));
           })
           .catch(console.log);
       } else {
         console.log("can't connect");
       }
-    }
   }
 });
