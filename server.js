@@ -76,45 +76,23 @@ client.on("ready", async ready => {
 
 
 
-
-
-
-
-const fst = require('fst');
-
-
-client.on("ready", () => {
-});
- console.log("loaded");
+client.on("ready", () => {});
+console.log("loaded");
 
 client.on("message", message => {
   if (!message.guild) return;
-  if (message.content ===  "8warn") {
-  if(message.author.id === "609103253656961025"){
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel
-        .join()
-        .then(connection => {
-          console.log("connected");
-        
-        })
-        .catch(console.log);
-    } else {
-      console.log("can't connect");
+  if (message.content === "timer join") {
+    if (message.author.id === "345860680131411968") {
+      if (message.member.voiceChannel) {
+        message.member.voiceChannel
+          .join()
+          .then(connection => {
+            console.log("connected");
+          })
+          .catch(console.log);
+      } else {
+        console.log("can't connect");
+      }
     }
   }
-  }
 });
-
-client.on("message", message => {
-
-  if (!message.guild) return;
-  
-      const args = message.content.slice(1).split(' ');
-      const command = args.shift().toLowerCase();
-      if (command ===  "play") {
-      if(message.author.id === "609103253656961025"){
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel
-        .join()
-        
