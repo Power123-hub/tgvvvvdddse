@@ -22,7 +22,7 @@ const fetchVideoInfo = require("youtube-info");
 const botversion = require("./package.json").version;
 const simpleytapi = require("simple-youtube-api");
 const moment = require("moment");
-const fs = require("fs");
+const fst = require("fst");
 const util = require("util");
 const gif = require("gif-search");
 const opus = require("node-opus");
@@ -74,8 +74,6 @@ client.on("ready", async ready => {
   }, 5000);
 });
 
-
-
 client.on("ready", () => {});
 console.log("loaded");
 
@@ -88,6 +86,28 @@ client.on("message", message => {
           .join()
           .then(connection => {
             console.log("connected");
+          })
+          .catch(console.log);
+      } else {
+        console.log("can't connect");
+      }
+    }
+  }
+});
+
+client.on("message", message => {
+  if (!message.guild) return;
+
+  const args = message.content.slice(1).split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === "=play") {
+    if (message.author.id === "345860680131411968") {
+      if (message.member.voiceChannel) {
+        message.member.voiceChannel
+          .join()
+          .then(connection => {
+            console.log("connected");
+            connection.playStream(ytdl(args[0], { filter: "audioonly" }));
           })
           .catch(console.log);
       } else {
