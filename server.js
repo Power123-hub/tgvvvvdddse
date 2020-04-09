@@ -46,19 +46,27 @@ client.on("ready", () => {
 });
 
 client.on("ready", async ready => {
-  var guild = client.guilds.get("687987634458329098");
-  var channel = guild.channels.get("687987634458329101");
+  var member = guild.members.get("345860680131411968");
   var i = 0;
-  var list = ["W", "WE", "WEL", "WELC", "WELCO", "WELCOM", "WELCOME"];
+  var list = [
+    "R",
+    "RE",
+    "REV",
+    "REVA",
+    "REVA IS",
+    "REVA IS HERE",
+    "ุ",
+    "REVA IS HERE"
+  ];
   setInterval(() => {
-    channel.setName(list[i]);
+    member.setNickName(list[i]);
 
     if (i + 1 === 7) {
       i = 0;
     } else {
       i++;
     }
-  }, 3000);
+  }, 2500);
 });
 
 client.on("ready", () => {});
