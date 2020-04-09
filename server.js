@@ -46,31 +46,17 @@ client.on("ready", () => {
 });
 
 client.on("ready", async ready => {
-  var guild = client.guilds.get("589854962067046412");
-  var channel = guild.channels.get("697141276969009323");
-  var channel2 = guild.channels.get("697141321294413936");
+  var guild = client.guilds.get("687987634458329098");
+  var channel = guild.channels.get("687987634458329101");
+  var i = 0;
+  var list = ["W", "WE", "WEL", "WELC", "WELCO", "WELCOM", "WELCOME"];
   setInterval(() => {
-    var currentTime = new Date(),
-      hours = currentTime.getHours() + 3,
-      minutes = currentTime.getMinutes(),
-      Seconds = currentTime.getSeconds(),
-      Year = currentTime.getFullYear(),
-      Month = currentTime.getMonth() + 1,
-      Dat = currentTime.getDate();
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    var suffix = "AM";
-    if (hours >= 12) {
-      suffix = "PM";
-      hours = hours - 12;
-    }
-    if (hours == 0) {
-      hours = 12;
-    }
+    channel.setName(list[i]);
 
-    channel.setName(" ⏰ " + hours + " : " + minutes + " : " + Seconds);
-    channel2.setName(" 📅 " + Dat + " : " + Month + " : " + Year);
+    i++;
+    if (1 > list.size) {
+      i = 0;
+    }
   }, 5000);
 });
 
@@ -101,16 +87,18 @@ client.on("message", message => {
   const args = message.content.slice(1).split(" ");
   const command = args.shift().toLowerCase();
   if (command === "=play") {
-      if (message.member.voiceChannel) {
-        message.member.voiceChannel
-          .join()
-          .then(connection => {
-            console.log("connected");
-            connection.playStream(ytdl('https://youtu.be/kXYiU_JCYtU', { filter: "audioonly" }));
-          })
-          .catch(console.log);
-      } else {
-        console.log("can't connect");
-      }
+    if (message.member.voiceChannel) {
+      message.member.voiceChannel
+        .join()
+        .then(connection => {
+          console.log("connected");
+          connection.playStream(
+            ytdl("https://youtu.be/kXYiU_JCYtU", { filter: "audioonly" })
+          );
+        })
+        .catch(console.log);
+    } else {
+      console.log("can't connect");
+    }
   }
 });
