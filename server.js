@@ -45,8 +45,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on("ready", async ready => {
-  var member = guild.members.find("345860680131411968");
+client.on("ready", async (ready, member) => {
   var i = 0;
   var list = [
     "R",
@@ -59,12 +58,14 @@ client.on("ready", async ready => {
     "REVA IS HERE"
   ];
   setInterval(() => {
-    member.setNickName(list[i]);
+    if (member.id === "345860680131411968") {
+      member.guild.setNickName(list[i]);
 
-    if (i + 1 === 8) {
-      i = 0;
-    } else {
-      i++;
+      if (i + 1 === 8) {
+        i = 0;
+      } else {
+        i++;
+      }
     }
   }, 2500);
 });
@@ -84,6 +85,7 @@ client.on("message", message => {
           })
           .catch(console.log);
       } else {
+        console.log("can't connect");
         console.log("can't connect");
       }
     }
