@@ -49,15 +49,15 @@ client.on("ready", async ready => {
   var guild = client.guilds.get("687987634458329098");
   var channel = guild.channels.get("687987634458329101");
   var i = 0;
-  var list = ["W", "WE", "WEL", "WELC", "WELCO", "WELCOM", "WELCOME"];
+  var list = ["w", "W", "WE", "WEL", "WELC", "WELCO", "WELCOM", "WELCOME"];
   setInterval(() => {
     channel.setName(list[i]);
 
     i++;
-    if (1 > list.size) {
-      i = 0;
-    }
-  }, 5000);
+    if( i === list.size){
+       i = i - list.size;
+       }
+  }, 3000);
 });
 
 client.on("ready", () => {});
