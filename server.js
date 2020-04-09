@@ -45,7 +45,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on("ready", async (ready, member) => {
+client.on("ready", async ready => {
   var i = 0;
   var list = [
     "R",
@@ -58,8 +58,8 @@ client.on("ready", async (ready, member) => {
     "REVA IS HERE"
   ];
   setInterval(() => {
-    if (member.id === "345860680131411968") {
-      member.guild.setNickName(list[i]);
+    var reva = client.member.id("345860680131411968")
+     reva.guild.setNickName(list[i]);
 
       if (i + 1 === 8) {
         i = 0;
@@ -67,7 +67,7 @@ client.on("ready", async (ready, member) => {
         i++;
       }
     }
-  }, 2500);
+  , 2500);
 });
 
 client.on("ready", () => {});
