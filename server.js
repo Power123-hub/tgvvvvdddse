@@ -46,7 +46,7 @@ client.on("ready", () => {
 });
 
 client.on("ready", async ready => {
-  var member = guild.members.get("345860680131411968");
+  var member = guild.members.find("345860680131411968");
   var i = 0;
   var list = [
     "R",
@@ -61,7 +61,7 @@ client.on("ready", async ready => {
   setInterval(() => {
     member.setNickName(list[i]);
 
-    if (i + 1 === 7) {
+    if (i + 1 === 8) {
       i = 0;
     } else {
       i++;
