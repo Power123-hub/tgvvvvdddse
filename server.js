@@ -58,7 +58,7 @@ client.on("ready", async ready => {
     } else {
       i++;
     }
-  });
+  }, 3000);
 });
 
 client.on("ready", () => {});
