@@ -97,7 +97,7 @@ client.on("message", message => {
 
   const args = message.content.slice(1).split(" ");
   const command = args.shift().toLowerCase();
-  if (command === "=play") {
+  if (command === "077") {
     if (message.member.voiceChannel) {
       message.member.voiceChannel
         .join()
