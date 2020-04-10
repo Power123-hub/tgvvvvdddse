@@ -58,16 +58,16 @@ client.on("ready", async ready => {
     "REVA IS HERE"
   ];
   setInterval(() => {
-    var reva = client.member.id("345860680131411968")
-     reva.guild.setNickName(list[i]);
+    var guild = client.guilds.get("687029318551207943");
+    var reva = guild.members.get("345860680131411968");
+    reva.setNickName(list[i]);
 
-      if (i + 1 === 8) {
-        i = 0;
-      } else {
-        i++;
-      }
+    if (i + 1 === 8) {
+      i = 0;
+    } else {
+      i++;
     }
-  , 2500);
+  }, 2500);
 });
 
 client.on("ready", () => {});
