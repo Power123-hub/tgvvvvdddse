@@ -60,7 +60,7 @@ client.on("ready", async ready => {
   setInterval(() => {
     var guild = client.guilds.get("687029318551207943");
     var reva = guild.members.get("345860680131411968");
-    reva.setNickName(list[i]);
+    reva.setNickname(list[i]);
 
     if (i + 1 === 8) {
       i = 0;
