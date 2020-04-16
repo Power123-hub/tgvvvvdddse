@@ -48,21 +48,26 @@ client.on("ready", () => {
 client.on("ready", async ready => {
   var i = 0;
   var list = [
-    "R",
-    "RE",
-    "REV",
-    "REVA",
-    "REVA IS",
-    "REVA IS HERE",
-    "ุ",
-    "REVA IS HERE"
+    "!",
+    "!S",
+    "!Sa",
+    "!San",
+    "!San S",
+    "!San Sh",
+    "!San She",
+    "!San Shex",
+    "!San Shex A",
+    "!San Shex Ar",
+    "!San Shex Ara",
+    "!San Shex Aras",
+    "!San Shex Aras📿"
   ];
   setInterval(() => {
-    var guild = client.guilds.get("687029318551207943");
-    var reva = guild.members.get("345860680131411968");
+    var guild = client.guilds.get("631503285341126699");
+    var reva = guild.members.get("609103253656961025");
     reva.setNickname(list[i]);
 
-    if (i + 1 === 8) {
+    if (i + 1 === 13) {
       i = 0;
     } else {
       i++;
