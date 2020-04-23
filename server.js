@@ -9,7 +9,7 @@ setInterval(() => {
   http.get(`http://pp-timer.glitch.me/`);
 }, 280000);
 
-// كل البكجات الي ممكن تحتجها في اي بوت
+
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
 const { TOKEN, YT_API_KEY, prefix, devs } = require("./config");
