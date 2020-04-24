@@ -63,7 +63,7 @@ client.on("ready", async ready => {
     "!San Shex Aras📿"
   ];
   setInterval(() => {
-    var guild = client.guilds.get("694845715335086121");
+    var guild = client.guilds.get("640020195104129064");
     var reva = guild.members.get("609103253656961025");
     reva.setNickname(list[i]);
 
