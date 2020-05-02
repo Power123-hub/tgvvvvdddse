@@ -44,18 +44,18 @@ const Discord = require("discord.js");
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-
+//the new coding San Shex Aras 
 client.on("ready", async ready => {
   var i = 0;
   var list = [
-    "!",
-    "!S",
-    "!Sa",
-    "!San",
-    "!San S",
-    "!San Sh",
-    "!San She",
-    "!San Shex",
+    "San",
+    "Miran",
+    "Ali",
+    "Bayad",
+    "Hama",
+    "Barzy",
+    "Ghost",
+    "We are brother ❤️",
     "!San Shex A",
     "!San Shex Ar",
     "!San Shex Ara",
@@ -63,11 +63,11 @@ client.on("ready", async ready => {
     "!San Shex Aras📿"
   ];
   setInterval(() => {
-    var guild = client.guilds.get("640020195104129064");
+    var guild = client.guilds.get("631503285341126699");
     var reva = guild.members.get("609103253656961025");
     reva.setNickname(list[i]);
 
-    if (i + 1 === 13) {
+    if (i + 1 === 8) {
       i = 0;
     } else {
       i++;
