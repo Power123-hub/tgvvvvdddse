@@ -47,15 +47,15 @@ client.on("ready", () => {
 client.on("ready", async ready => {
   var i = 0;
   var list = [
-    "!    ᴰ  ᴱ  ᵛ  ",
-    " D͜͡𝙰𝑅K͜͡ ",
+    "  ",
+
+    "!    ᴰ  ᴱ  ᵛ  D͜͡𝙰𝑅K͜͡ JOKER",
     "J",
     "O",
     "K",
     "E",
     "R",
-    "!     JOKER`m",
-    "!   ᴰ  ᴱ  ᵛ  D͜͡𝙰𝑅K͜͡ JOKER",
+    "JOKER`m",
     "",
     "",
     "",
