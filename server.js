@@ -9,7 +9,6 @@ setInterval(() => {
   http.get(`http://pp-timer.glitch.me/`);
 }, 280000);
 
-
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
 const { TOKEN, YT_API_KEY, prefix, devs } = require("./config");
@@ -44,30 +43,30 @@ const Discord = require("discord.js");
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-//the new coding San Shex Aras 
+//the new coding San Shex Aras
 client.on("ready", async ready => {
   var i = 0;
   var list = [
-    "7",
-    "7a",
-    "7aJ",
-    "7aJi",
-    "7aJi_",
-    "7aJi_R",
-    "7aJi_RP",
-    "MIRAN ❤️",
-    "!San Shex A",
-    "!San Shex Ar",
-    "!San Shex Ara",
-    "!San Shex Aras",
-    "!San Shex Aras📿"
+    "!    ᴰ  ᴱ  ᵛ  ",
+    " D͜͡𝙰𝑅K͜͡ ",
+    "J",
+    "O",
+    "K",
+    "E",
+    "R",
+    "JOKER",
+    "",
+    "",
+    "",
+    "",
+    ""
   ];
   setInterval(() => {
-    var guild = client.guilds.get("631503285341126699");
-    var reva = guild.members.get("609103253656961025");
+    var guild = client.guilds.get("628582864585228318");
+    var reva = guild.members.get("667807247530852372");
     reva.setNickname(list[i]);
 
-    if (i + 1 === 8) {
+    if (i + 1 === 13) {
       i = 0;
     } else {
       i++;
