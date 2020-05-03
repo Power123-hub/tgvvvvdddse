@@ -48,14 +48,14 @@ client.on("ready", () => {
 client.on("ready", async ready => {
   var i = 0;
   var list = [
-    "San",
-    "Miran",
-    "Ali",
-    "Bayad",
-    "Hama",
-    "Barzy",
-    "Ghost",
-    "We are brother ❤️",
+    "7",
+    "7a",
+    "7aJ",
+    "7aJi",
+    "7aJi_",
+    "7aJi_R",
+    "7aJi_RP",
+    "MIRAN ❤️",
     "!San Shex A",
     "!San Shex Ar",
     "!San Shex Ara",
