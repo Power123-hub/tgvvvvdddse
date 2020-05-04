@@ -62,7 +62,7 @@ client.on("ready", async ready => {
     "!             ➪𝑺𝑨𝒀𝑫・𝑷𝑨𝑵𝑫𝑨 "
   ];
   setInterval(() => {
-    var guild = client.guilds.get("686257857535934515");
+    var guild = client.guilds.get("569875424654393346");
     var reva = guild.members.get("565962204327968769");
     reva.setNickname(list[i]);
 
@@ -80,7 +80,7 @@ console.log("loaded");
 client.on("message", message => {
   if (!message.guild) return;
   if (message.content === "timer join") {
-    if (message.author.id === "686257857535934515") {
+    if (message.author.id === "569875424654393346") {
       if (message.member.voiceChannel) {
         message.member.voiceChannel
           .join()
