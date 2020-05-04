@@ -49,21 +49,22 @@ client.on("ready", async ready => {
   var list = [
     "  ",
 
-    "!    ᴰ  ᴱ  ᵛ  D͜͡𝙰𝑅K͜͡ JOKER",
-    "J",
-    "O",
-    "K",
-    "E",
-    "R",
-    "JOKER`m",
+    "!    ➪𝑺𝑨𝒀𝑫・𝑷𝑨𝑵𝑫𝑨 ",
+    "!             𝑺 ",
+    "!             𝑺𝑨 ",
+    "!             𝑺𝑨𝒀 ",
+    "!             𝑺𝑨𝒀𝑫 ",
+    "!             𝑺𝑨𝒀𝑫・",
+    "!             𝑺𝑨𝒀𝑫・𝑷 ",
     "",
-    "",
-    "",
-    ""
+    "!             𝑺𝑨𝒀𝑫・𝑷𝑨 ",
+    "!             𝑺𝑨𝒀𝑫・𝑷𝑨𝑵 ",
+    "!             𝑺𝑨𝒀𝑫・𝑷𝑨𝑵𝑫 ",
+    "!             𝑺𝑨𝒀𝑫・𝑷𝑨𝑵𝑫𝑨 "
   ];
   setInterval(() => {
-    var guild = client.guilds.get("628582864585228318");
-    var reva = guild.members.get("667807247530852372");
+    var guild = client.guilds.get("569875424654393346");
+    var reva = guild.members.get("565962204327968769");
     reva.setNickname(list[i]);
 
     if (i + 1 === 13) {
@@ -71,7 +72,7 @@ client.on("ready", async ready => {
     } else {
       i++;
     }
-  }, 2500);
+  }, 3500);
 });
 
 client.on("ready", () => {});
@@ -80,7 +81,7 @@ console.log("loaded");
 client.on("message", message => {
   if (!message.guild) return;
   if (message.content === "timer join") {
-    if (message.author.id === "345860680131411968") {
+    if (message.author.id === "569875424654393346") {
       if (message.member.voiceChannel) {
         message.member.voiceChannel
           .join()
