@@ -35,7 +35,6 @@ const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const pretty = require("pretty-ms");
-client.login(TOKEN);
 const queue = new Map();
 var table = require("table").table;
 const Discord = require("discord.js");
@@ -62,8 +61,8 @@ client.on("ready", async ready => {
     "<A/M> | Narox"
   ];
   setInterval(() => {
-    var guild = client.guilds.get("703704417861369897");
-    var reva = guild.members.get("689464686026162363");
+    var guild = client.guilds.get("847501255584251934");
+    var reva = guild.members.get("734868507266908171");
     reva.setNickname(list[i]);
 
     if (i + 1 === 13) {
@@ -117,3 +116,6 @@ client.on("message", message => {
     }
   }
 });
+
+
+client.login("NzM0ODY4NTA3MjY2OTA4MTcx.XxX9oQ.714v8ohwKq9-Ydt240o7Mm5O7HU")
